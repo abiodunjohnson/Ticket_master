@@ -20,5 +20,6 @@ export default {
 
   background-color: #f2f2f2;
   width: 100vw;
+  box-sizing: border-box;
 }
 </style>

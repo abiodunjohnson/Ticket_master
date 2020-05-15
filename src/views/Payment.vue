@@ -23,11 +23,11 @@
                 <p class="status">Regular</p>
                 <p class="price">&#8358;5000</p>
                 <div class="btn-item">
-                  <router-link to class="send-ticket">
+                  <router-link to class="send-ticket deduct">
                     <img src="@/assets/img/deduct item.png" />
                   </router-link>
                   <p class="number">2</p>
-                  <router-link to class="send-ticket">
+                  <router-link to class="send-ticket add">
                     <img src="@/assets/img/Add item.png" />
                   </router-link>
                 </div>
@@ -37,11 +37,11 @@
                 <p class="status">VIP</p>
                 <p class="price">&#8358;100,000</p>
                 <div class="btn-item">
-                  <router-link to class="send-ticket">
+                  <router-link to class="send-ticket deduct">
                     <img src="@/assets/img/deduct item.png" />
                   </router-link>
                   <p class="number">1</p>
-                  <router-link to class="send-ticket">
+                  <router-link to class="send-ticket add">
                     <img src="@/assets/img/Add item.png" />
                   </router-link>
                 </div>
@@ -52,11 +52,11 @@
                 <p class="status">Table for 5</p>
                 <p class="price">&#8358;1,000,000</p>
                 <div class="btn-item">
-                  <router-link to class="send-ticket">
+                  <router-link to class="send-ticket deduct">
                     <img src="@/assets/img/deduct item.png" />
                   </router-link>
                   <p class="number">0</p>
-                  <router-link to class="send-ticket">
+                  <router-link to class="send-ticket add">
                     <img src="@/assets/img/Add item.png" />
                   </router-link>
                 </div>
@@ -143,6 +143,10 @@ export default {};
   width: 180%;
 }
 
+#payment .main-container .left-container .btn-block {
+  padding-top: 3rem;
+}
+
 #payment .main-container .left-container .btn-block .send-ticket {
   border: 1px solid transparent;
   background: #ffffff;
@@ -154,8 +158,8 @@ export default {};
 }
 
 #payment .main-container .left-container .btn-block .send-ticket img {
-  width: 15px;
-  height: 15px;
+  width: 20px;
+  height: 20px;
 }
 
 #payment .main-container .left-container .event-name {
@@ -190,6 +194,14 @@ export default {};
   display: flex;
 }
 
+#payment .main-container .left-container ul .list-item .btn-item .deduct {
+  margin-right: 05px;
+}
+
+#payment .main-container .left-container ul .list-item .btn-item .add {
+  margin-left: 05px;
+}
+
 #payment
   .main-container
   .left-container
@@ -199,8 +211,8 @@ export default {};
   .send-ticket
   img {
   margin-top: 25px;
-  width: 15px;
-  height: 15px;
+  width: 18px;
+  height: 18px;
 }
 
 #payment .main-container .left-container ul .list-item .status {
@@ -220,7 +232,7 @@ export default {};
   font-weight: 600;
 }
 
-.number {
+#payment .main-container .left-container ul .list-item .number {
   font-family: Flutterwave;
   font-size: 18px;
   line-height: 28px;
@@ -228,12 +240,13 @@ export default {};
   color: #333333;
 }
 
-.expire {
+#payment .main-container .left-container .expire {
   font-family: Flutterwave;
-  font-size: 14px;
-  line-height: 28px;
+  font-size: 13px;
+  line-height: 20px;
   letter-spacing: 0.5px;
   color: #828282;
+  margin-left: 5.4rem;
 }
 
 /* LEFT CONTAINER */

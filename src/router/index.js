@@ -38,9 +38,21 @@ export const router = new Router({
 
        },
 
-       {
+    {
         path: '/Payment',
         component: () => import('@/views/Payment.vue')
+    },
+
+    {
+        path: '/User',
+        component: () => import('@/views/User.vue')
+    },
+    
+    {
+        path: '/CoverPage',
+        component: () => import('@/views/CoverPage.vue')
     }
+
+
     ]
 })
