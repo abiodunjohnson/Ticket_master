@@ -4,7 +4,7 @@
       <div class="img-circle-block">
         <img src="@/assets/img/Ellipse.png" />
       </div>
-      <div class="img-line-block">
+      <div class="img-line-block1">
         <img src="@/assets/img/Line.png" />
       </div>
       <div class="cover-text">
@@ -25,7 +25,7 @@ export default {};
 <style scoped>
 #coverpage {
   background-color: #12122c;
-  height: 43rem;
+  height: 38rem;
 }
 
 #coverpage .main-container .img-circle-block {
@@ -48,6 +48,19 @@ export default {};
 #coverpage .main-container .img-line-block img {
   height: 6rem;
   text-align: center;
+}
+
+#coverpage .main-container .img-line-block1 {
+  /* margin-right: 5rem; */
+  /* padding-top: 3rem; */
+  /* margin-top: -px; */
+  text-align: center;
+  margin-left: 4.6rem;
+}
+
+#coverpage .main-container .img-line-block1 img {
+  height: 6rem;
+  /* text-align: center; */
 }
 
 #coverpage .main-container .cover-text {

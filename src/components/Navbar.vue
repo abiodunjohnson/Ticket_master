@@ -1,33 +1,42 @@
 <template>
   <main id="nav-bar">
-    <nav class="navbar">
+    <div class="navbar-brand-block">
       <router-link class="navbar-brand ml-5" to="/">
         <img src="@/assets/img/logo.png" alt="logo" class="logo-img" />
       </router-link>
+    </div>
+    <div>
       <ul class="navbar-right">
-        <li class>I didn't get my ticket</li>
+        <li class="ticket__text">I didn't get my ticket</li>
 
         <li>
           <button class="create-event-btn">CREATE YOUR OWN EVENT</button>
         </li>
       </ul>
-    </nav>
+    </div>
   </main>
 </template>
 
 <style scoped>
-#nav-bar .navbar {
+#nav-bar {
   display: flex;
   justify-content: space-between;
+  padding: 2rem 6rem;
 }
 
-#nav-bar .navbar .navbar-brand {
-  margin-left: 9rem;
+#nav-bar .navbar-brand-block {
+  margin-top: 10px;
 }
 
-#nav-bar .navbar .navbar-right {
+#nav-bar .navbar-right {
   list-style: none;
-  margin-right: 9rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#nav-bar .navbar-right .ticket__text {
+  padding-right: 1rem;
 }
 
 #nav-bar .navbar .navbar-right li {

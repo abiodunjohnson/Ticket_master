@@ -32,6 +32,20 @@ export const router = new Router({
                     path: '/DidntGetTicketSuccessful',
                     component: () => import('@/views/DidntGetTicketSuccessful.vue')
                 },
+                {
+                    path:'/BlankLayout',
+                    component: () => import('@/views/BlankLayout.vue')
+                },
+                {
+                    path:'/Register',
+                    component: () => import('@/views/Register.vue')
+                },
+
+                {
+                    path:'/RegisterationSucessful',
+                    component: () => import('@/views/RegisterationSucessful.vue')
+                }
+
 
                
             ]
@@ -51,6 +65,10 @@ export const router = new Router({
     {
         path: '/CoverPage',
         component: () => import('@/views/CoverPage.vue')
+    },
+    {
+        path: '/EventTicket',
+        component: () => import('@/views/EventTicket.vue')
     }
 
 

@@ -4,9 +4,10 @@
       <div class="left-container">
         <div class="left-content">
           <div class="btn-block">
-            <router-link to class="send-ticket">
-              <img src="@/assets/img/Close.png" />close
-            </router-link>
+            <button to class="send-ticket">
+              <img src="@/assets/img/Close.png" />
+              close
+            </button>
           </div>
 
           <div class="event-name">
@@ -23,13 +24,14 @@
                 <p class="status">Regular</p>
                 <p class="price">&#8358;5000</p>
                 <div class="btn-item">
-                  <router-link to class="send-ticket deduct">
-                    <img src="@/assets/img/deduct item.png" />
-                  </router-link>
-                  <p class="number">2</p>
-                  <router-link to class="send-ticket add">
-                    <img src="@/assets/img/Add item.png" />
-                  </router-link>
+                  <!-- <button @click="decrement" class="send-ticket deduct"> -->
+                  <img @click="decrement" src="@/assets/img/deduct item.png" />
+                  <!-- </button> -->
+                  {{counter}}
+                  <!-- <p class="number">{{counter}}</p> -->
+                  <!-- <button @click="increment" class="send-ticket add"> -->
+                  <img @click="increment" src="@/assets/img/Add item.png" />
+                  <!-- </button> -->
                 </div>
               </li>
               <hr class="left-line" />
@@ -37,13 +39,14 @@
                 <p class="status">VIP</p>
                 <p class="price">&#8358;100,000</p>
                 <div class="btn-item">
-                  <router-link to class="send-ticket deduct">
-                    <img src="@/assets/img/deduct item.png" />
-                  </router-link>
-                  <p class="number">1</p>
-                  <router-link to class="send-ticket add">
-                    <img src="@/assets/img/Add item.png" />
-                  </router-link>
+                  <!-- <button class="send-ticket deduct"> -->
+                  <img @click="decrement" src="@/assets/img/deduct item.png" />
+                  <!-- </button> -->
+                  {{counter}}
+                  <!-- <p class="number">{{counter}}</p> -->
+                  <!-- <button class="send-ticket add"> -->
+                  <img @click="increment" src="@/assets/img/Add item.png" />
+                  <!-- </button> -->
                 </div>
               </li>
               <li></li>
@@ -52,13 +55,14 @@
                 <p class="status">Table for 5</p>
                 <p class="price">&#8358;1,000,000</p>
                 <div class="btn-item">
-                  <router-link to class="send-ticket deduct">
-                    <img src="@/assets/img/deduct item.png" />
-                  </router-link>
-                  <p class="number">0</p>
-                  <router-link to class="send-ticket add">
-                    <img src="@/assets/img/Add item.png" />
-                  </router-link>
+                  <!-- <button to class="send-ticket deduct"> -->
+                  <img @click="decrement" src="@/assets/img/deduct item.png" />
+                  <!-- </button> -->
+                  {{counter}}
+                  <!-- <p class="number">{{counter}}</p> -->
+                  <!-- <button to class="send-ticket add"> -->
+                  <img @click="increment" src="@/assets/img/Add item.png" />
+                  <!-- </button> -->
                 </div>
               </li>
               <hr class="left-line" />
@@ -118,7 +122,22 @@
 </template>
 
 <script>
-export default {};
+export default {
+  data() {
+    return {
+      counter: 0
+    };
+  },
+
+  methods: {
+    increment() {
+      this.counter++;
+    },
+    decrement() {
+      this.counter--;
+    }
+  }
+};
 </script>
 
 <style scoped>
@@ -144,7 +163,8 @@ export default {};
 }
 
 #payment .main-container .left-container .btn-block {
-  padding-top: 3rem;
+  /* padding-top: 3rem; */
+  display: flex;
 }
 
 #payment .main-container .left-container .btn-block .send-ticket {
@@ -154,7 +174,9 @@ export default {};
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   color: #333333;
   padding: 6px 10px;
-  width: 05%;
+  width: 50px;
+  height: 50px;
+  font-size: 20px;
 }
 
 #payment .main-container .left-container .btn-block .send-ticket img {
@@ -192,6 +214,7 @@ export default {};
 
 #payment .main-container .left-container ul .list-item .btn-item {
   display: flex;
+  padding-top: 21px;
 }
 
 #payment .main-container .left-container ul .list-item .btn-item .deduct {
@@ -202,6 +225,18 @@ export default {};
   margin-left: 05px;
 }
 
+#payment .main-container .left-container ul .list-item .btn-item button {
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  border: 1px solid red;
+}
+
+#payment .main-container .left-container ul .list-item .btn-item img {
+  width: 22px;
+  height: 22px;
+}
+
 #payment
   .main-container
   .left-container
@@ -210,9 +245,8 @@ export default {};
   .btn-item
   .send-ticket
   img {
-  margin-top: 25px;
-  width: 18px;
-  height: 18px;
+  width: 22px;
+  height: 22px;
 }
 
 #payment .main-container .left-container ul .list-item .status {

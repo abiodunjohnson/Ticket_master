@@ -1,5 +1,5 @@
 <template>
-  <main id="freeevent">
+  <main id="free">
     <section class="main-container">
       <div class="right-container">
         <div class="right-content">
@@ -29,12 +29,15 @@
 
       <div class="left-container">
         <div class="left-content">
-          <img src="@/assets/img/event-image.png" />
+          <div class="img-block">
+            <img src="@/assets/img/event-image.png" />
+          </div>
         </div>
       </div>
     </section>
 
     <hr />
+    <Register />
 
     <section class="next-container">
       <div class="left-container">
@@ -72,7 +75,12 @@
 </template>
 
 <script>
-export default {};
+// import Register from "./Register.vue";
+export default {
+  components: {
+    // Register
+  }
+};
 </script>
 
 <style scoped>
@@ -81,6 +89,7 @@ export default {};
 }
 
 #freeevent .main-container .right-container {
+  /* margin-right: 15px; */
   margin-left: 13rem;
 }
 
@@ -133,13 +142,18 @@ export default {};
   margin-right: 15rem;
   margin-top: 10px;
 }
-#freeevent .main-container .left-container .left-content img {
-  width: 19rem;
+
+#freeevent .main-container .left-container .left-content .img-block img {
+  margin-right: -30px;
+}
+
+#freeevent .main-container .left-container .left-content .img-block img {
+  width: 22.5rem;
   height: 23.5rem;
 }
 
 #freeevent hr {
-  width: 67%;
+  width: 69%;
   margin-top: 20px;
 }
 
@@ -175,7 +189,7 @@ export default {};
 }
 
 #freeevent .next-container .right-container {
-  margin-left: 14rem;
+  margin-left: 19.3rem;
 }
 
 #freeevent .next-container .right-container .right-content .event-date {
@@ -207,6 +221,7 @@ export default {};
   line-height: 16px;
   color: #333333;
 }
+
 #freeevent .next-container .right-container .right-content .social-block ul {
   list-style: none;
   padding: 0px;

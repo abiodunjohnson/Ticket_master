@@ -29,12 +29,15 @@
 
       <div class="left-container">
         <div class="left-content">
-          <img src="@/assets/img/event-image.png" />
+          <div class="img-block">
+            <img src="@/assets/img/event-image.png" />
+          </div>
         </div>
       </div>
     </section>
-
+    
     <hr />
+    <Register />
 
     <section class="next-container">
       <div class="left-container">
@@ -72,15 +75,25 @@
 </template>
 
 <script>
-export default {};
+import Register from "./Register.vue";
+export default {
+  components: {
+    Register
+  },
+
+  methods: {
+  show () {
+    this.$modal.show('register');
+  },
+  hide () {
+    this.$modal.hide('register');
+  }
+}
+};
 </script>
 
 <style scoped>
 #event .main-container {
-  /* position: absolute; */
-  /* margin-top: 20%;
-  margin-left: 50%; */
-  /* transform: translate(-50%, -50%); */
   display: flex;
 }
 
@@ -138,13 +151,18 @@ export default {};
   margin-right: 15rem;
   margin-top: 10px;
 }
-#event .main-container .left-container .left-content img {
-  width: 19rem;
+
+#event .main-container .left-container .left-content .img-block img {
+  margin-right: -30px;
+}
+
+#event .main-container .left-container .left-content .img-block img {
+  width: 22.5rem;
   height: 23.5rem;
 }
 
 #event hr {
-  width: 67%;
+  width: 69%;
   margin-top: 20px;
 }
 
@@ -180,7 +198,7 @@ export default {};
 }
 
 #event .next-container .right-container {
-  margin-left: 14rem;
+  margin-left: 19.3rem;
 }
 
 #event .next-container .right-container .right-content .event-date {
