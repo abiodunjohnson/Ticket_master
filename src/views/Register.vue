@@ -43,11 +43,14 @@ export default {};
 </script>
 
 <style scoped>
+#register {
+  height: auto;
+}
 #register .main-container {
   background: #ffffff;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  /* box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); */
   border-radius: 10px;
-  width: 30%;
+  width: 70%;
   height: auto;
   margin: auto;
   padding: 30px 10px 60px 10px;

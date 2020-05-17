@@ -37,7 +37,7 @@
     </section>
     
     <hr />
-    <Register />
+    <!-- <Register /> -->
 
     <section class="next-container">
       <div class="left-container">
@@ -71,24 +71,21 @@
         </div>
       </div>
     </section>
+
+   
   </main>
 </template>
 
 <script>
-import Register from "./Register.vue";
+// import Register from "./Register.vue";
 export default {
   components: {
-    Register
+    // Register
   },
 
-  methods: {
-  show () {
-    this.$modal.show('register');
-  },
-  hide () {
-    this.$modal.hide('register');
-  }
-}
+  
+
+ 
 };
 </script>
 

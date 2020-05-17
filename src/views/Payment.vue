@@ -3,12 +3,15 @@
     <section class="main-container">
       <div class="left-container">
         <div class="left-content">
-          <div class="btn-block">
-            <button to class="send-ticket">
-              <img src="@/assets/img/Close.png" />
-              close
-            </button>
-          </div>
+           <div class="register-close">
+       
+        <a>
+          <img src="@/assets/img/Close.png" />
+        </a>
+         <div class="register-heading">
+          <h3>close</h3>
+        </div>
+      </div>
 
           <div class="event-name">
             The Nathan Cole
@@ -153,6 +156,28 @@ export default {
 #payment .main-container .left-container {
   margin-left: 5rem;
 }
+
+#payment .main-container .left-container .register-close {
+  display: flex;
+}
+
+#payment .main-container .left-container .register-close .register-heading h3 {
+  font-family: SFProDisplay;
+  font-size: 12px;
+  line-height: 12px;
+  letter-spacing: 0.065em;
+  text-transform: uppercase;
+  color: #333333;
+}
+#payment .main-container .left-container .register-close a {
+  margin-top: 10px;
+}
+
+#payment .main-container .left-container .register-close a img {
+  width: 12px;
+  height: 12px;
+}
+
 
 #payment .main-container .left-container .left-line {
   width: 78%;

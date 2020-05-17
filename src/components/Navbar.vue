@@ -10,12 +10,22 @@
         <li class="ticket__text">I didn't get my ticket</li>
 
         <li>
-          <button class="create-event-btn">CREATE YOUR OWN EVENT</button>
+          <button @click="showModal" class="create-event-btn">CREATE YOUR OWN EVENT</button>
         </li>
       </ul>
     </div>
   </main>
 </template>
+
+<script>
+export default {
+  methods:{
+    showModal(){
+      this.$emit('showModal', 'carrier')
+    }
+  }
+}
+</script>
 
 <style scoped>
 #nav-bar {
