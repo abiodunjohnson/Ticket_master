@@ -5,7 +5,7 @@
         <div class="register-heading">
           <h3>Register For free</h3>
         </div>
-        <a>
+        <a @click="$emit()">
           <img src="@/assets/img/Close.png" />
         </a>
       </div>
@@ -68,13 +68,15 @@ export default {};
   letter-spacing: 0.065em;
   text-transform: uppercase;
   color: #333333;
+  padding-right: 39px;
 }
+
 #register .main-container .register-close a {
   margin-top: 10px;
 }
 
 #register .main-container hr {
-  width: 75%;
+  width: 82%;
   border: 0.2px solid#bdbdbd;
 }
 
@@ -87,7 +89,7 @@ export default {};
 }
 
 #register .main-container .main-detail .form-container .input-block label {
-  margin-left: 57px;
+  margin-left: 29px;
   font-style: normal;
   font-weight: normal;
   font-size: 14px;
@@ -104,7 +106,7 @@ input[type="name"],
   border-radius: 4px;
   padding: 10px 15px;
   width: 16.5rem;
-  margin-left: 51px;
+  margin-left: 28px;
   margin-top: 10px;
 }
 

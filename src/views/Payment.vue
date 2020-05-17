@@ -3,16 +3,16 @@
     <section class="main-container">
       <div class="left-container">
         <div class="left-content">
-           <div class="register-close">
-       
-        <a>
-          <img src="@/assets/img/Close.png" />
-        </a>
-         <div class="register-heading">
-          <h3>close</h3>
-        </div>
-      </div>
-
+          <div class="btn-close-block">
+            <div class="register-close">
+              <a>
+                <img src="@/assets/img/Close.png" />
+              </a>
+              <div class="register-heading">
+                <h3>Close</h3>
+              </div>
+            </div>
+          </div>
           <div class="event-name">
             The Nathan Cole
             Experience
@@ -27,14 +27,14 @@
                 <p class="status">Regular</p>
                 <p class="price">&#8358;5000</p>
                 <div class="btn-item">
-                  <!-- <button @click="decrement" class="send-ticket deduct"> -->
-                  <img @click="decrement" src="@/assets/img/deduct item.png" />
-                  <!-- </button> -->
+                  <div class="btn-left">
+                    <img @click.prevent="decrement" src="@/assets/img/deduct item.png" />
+                  </div>
                   {{counter}}
                   <!-- <p class="number">{{counter}}</p> -->
-                  <!-- <button @click="increment" class="send-ticket add"> -->
-                  <img @click="increment" src="@/assets/img/Add item.png" />
-                  <!-- </button> -->
+                  <div class="btn-right">
+                    <img @click.prevent="increment" src="@/assets/img/Add item.png" />
+                  </div>
                 </div>
               </li>
               <hr class="left-line" />
@@ -42,14 +42,14 @@
                 <p class="status">VIP</p>
                 <p class="price">&#8358;100,000</p>
                 <div class="btn-item">
-                  <!-- <button class="send-ticket deduct"> -->
-                  <img @click="decrement" src="@/assets/img/deduct item.png" />
-                  <!-- </button> -->
+                  <div class="btn-left">
+                    <img @click="decrement" src="@/assets/img/deduct item.png" />
+                  </div>
                   {{counter}}
                   <!-- <p class="number">{{counter}}</p> -->
-                  <!-- <button class="send-ticket add"> -->
-                  <img @click="increment" src="@/assets/img/Add item.png" />
-                  <!-- </button> -->
+                  <div class="btn-right">
+                    <img @click="increment" src="@/assets/img/Add item.png" />
+                  </div>
                 </div>
               </li>
               <li></li>
@@ -58,14 +58,14 @@
                 <p class="status">Table for 5</p>
                 <p class="price">&#8358;1,000,000</p>
                 <div class="btn-item">
-                  <!-- <button to class="send-ticket deduct"> -->
-                  <img @click="decrement" src="@/assets/img/deduct item.png" />
-                  <!-- </button> -->
+                  <div class="btn-left">
+                    <img @click="decrement" src="@/assets/img/deduct item.png" />
+                  </div>
                   {{counter}}
                   <!-- <p class="number">{{counter}}</p> -->
-                  <!-- <button to class="send-ticket add"> -->
-                  <img @click="increment" src="@/assets/img/Add item.png" />
-                  <!-- </button> -->
+                  <div class="btn-right">
+                    <img @click="increment" src="@/assets/img/Add item.png" />
+                  </div>
                 </div>
               </li>
               <hr class="left-line" />
@@ -134,10 +134,11 @@ export default {
 
   methods: {
     increment() {
-      this.counter++;
+      this.counter += 1;
     },
     decrement() {
-      this.counter--;
+      if (this.counter === 0) return;
+      this.counter -= 1;
     }
   }
 };
@@ -157,30 +158,43 @@ export default {
   margin-left: 5rem;
 }
 
+#payment .main-container .left-container .btn-close-block {
+  padding-top: 35px;
+}
+
 #payment .main-container .left-container .register-close {
   display: flex;
+  border: 1px solid transparent;
+  background: #ffffff;
+  border-radius: 60px;
+  padding: 04px 06px;
+  height: 1rem;
+  width: 12%;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  margin-left: 6rem;
 }
 
 #payment .main-container .left-container .register-close .register-heading h3 {
   font-family: SFProDisplay;
-  font-size: 12px;
+  font-size: 16px;
   line-height: 12px;
   letter-spacing: 0.065em;
-  text-transform: uppercase;
+  font-weight: 500;
+  margin: 0px;
   color: #333333;
 }
 #payment .main-container .left-container .register-close a {
-  margin-top: 10px;
+  margin-top: -02px;
 }
 
 #payment .main-container .left-container .register-close a img {
-  width: 12px;
-  height: 12px;
+  width: 13px;
+  height: 13px;
 }
-
 
 #payment .main-container .left-container .left-line {
   width: 78%;
+  border: 0.2px solid #bdbdbd;
 }
 
 #payment .main-container .left-container .left-below-block {
@@ -188,7 +202,6 @@ export default {
 }
 
 #payment .main-container .left-container .btn-block {
-  /* padding-top: 3rem; */
   display: flex;
 }
 
@@ -242,19 +255,12 @@ export default {
   padding-top: 21px;
 }
 
-#payment .main-container .left-container ul .list-item .btn-item .deduct {
-  margin-right: 05px;
+#payment .main-container .left-container ul .list-item .btn-item .btn-right {
+  padding-left: 05px;
 }
 
-#payment .main-container .left-container ul .list-item .btn-item .add {
-  margin-left: 05px;
-}
-
-#payment .main-container .left-container ul .list-item .btn-item button {
-  height: 20px;
-  width: 20px;
-  border-radius: 50%;
-  border: 1px solid red;
+#payment .main-container .left-container ul .list-item .btn-item .btn-left {
+  padding-right: 05px;
 }
 
 #payment .main-container .left-container ul .list-item .btn-item img {
@@ -327,7 +333,7 @@ export default {
 
 #payment .main-container .right-container .right-content .right-line {
   width: 70%;
-  border: 1px solid #bdbdbd;
+  border: 0.2px solid #bdbdbd;
 }
 
 #payment .main-container .right-container .right-content .status-block {
@@ -338,7 +344,7 @@ export default {
 #payment .main-container .right-container .right-content .right-line-bottom {
   margin-top: 7rem;
   width: 70%;
-  border: 1px solid #bdbdbd;
+  border: 0.2px solid #bdbdbd;
 }
 
 #payment

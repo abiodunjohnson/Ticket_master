@@ -35,9 +35,8 @@
         </div>
       </div>
     </section>
-    
+
     <hr />
-    <!-- <Register /> -->
 
     <section class="next-container">
       <div class="left-container">
@@ -71,22 +70,11 @@
         </div>
       </div>
     </section>
-
-   
   </main>
 </template>
 
 <script>
-// import Register from "./Register.vue";
-export default {
-  components: {
-    // Register
-  },
-
-  
-
- 
-};
+export default {};
 </script>
 
 <style scoped>

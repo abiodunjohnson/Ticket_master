@@ -1,7 +1,7 @@
 <template>
   <main id="footer">
     <footer class="footer-block">
-      <div class="footer-left">Copyright 2020. Flutterwave inc</div>
+      <div class="footer-left">Copyright {{ new Date().getFullYear() }}. Flutterwave inc</div>
       <ul>
         <li>Terms &#38; Conditions</li>
         <li>Privacy Policy</li>

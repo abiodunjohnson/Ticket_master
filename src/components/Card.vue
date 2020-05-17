@@ -29,7 +29,7 @@ export default {};
 }
 #card .card-container .detail-summary {
   text-align: start;
-  padding-left: 22px;
+  padding-left: 30px;
 }
 #card .card-container .detail-summary .event-date {
   font-size: 12px;
@@ -55,6 +55,7 @@ export default {};
   line-height: 17px;
   letter-spacing: 0.5px;
   color: #4f4f4f;
-  margin-top: 08px;
+  padding-top: 04px;
+  padding-bottom: 20px;
 }
 </style>

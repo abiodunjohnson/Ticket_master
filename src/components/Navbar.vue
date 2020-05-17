@@ -19,23 +19,27 @@
 
 <script>
 export default {
-  methods:{
-    showModal(){
-      this.$emit('showModal', 'carrier')
+  methods: {
+    showModal() {
+      this.$emit("showModal", "carrier");
     }
   }
-}
+};
 </script>
 
 <style scoped>
 #nav-bar {
   display: flex;
   justify-content: space-between;
-  padding: 2rem 6rem;
+  padding: 0rem 6rem;
 }
 
 #nav-bar .navbar-brand-block {
   margin-top: 10px;
+}
+
+#nav-bar .navbar-brand-block .navbar-brand img {
+  width: 09rem;
 }
 
 #nav-bar .navbar-right {
