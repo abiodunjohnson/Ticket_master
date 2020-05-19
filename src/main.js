@@ -5,12 +5,17 @@ import VModal from 'vue-js-modal'
 import store from './store'
 import VueToast from 'vue-toast-notification'
 import 'vue-toast-notification/dist/theme-default.css'
+import moment from 'moment'
 
 
 
 Vue.use(VModal)
 Vue.use(VueToast);
 Vue.config.productionTip = false
+
+Vue.filter('eventDay', (value) => {
+  return moment(value).format('Do MMMM YYYY')
+})
 
 
 new Vue({

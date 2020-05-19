@@ -21,8 +21,11 @@ export default {
   width: 100vw !important;
   /* box-sizing: border-box; */
 }
-body {
+body, html {
   margin: 0px !important;
   overflow-x: none;
+  padding: 0;
+  box-sizing: border-box;
 }
+
 </style>

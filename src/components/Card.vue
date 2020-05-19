@@ -1,5 +1,5 @@
 <template>
-  <main id="card">
+  <main id="card" @click="getOne">
     <div class="card-container">
       <div class="img-block">
         <img v-if="x.image === null" src="@/assets/img/event-image.png" alt="outgoing-card" />
@@ -7,8 +7,7 @@
       </div>
       <div class="detail-summary">
         <div class="event-date">
-          8th
-          <span>FEBRUARY</span> 2019
+         {{x.start_time|eventDay}}
         </div>
         <div class="event-name">{{x.description}}</div>
         <div class="event-price">
@@ -21,15 +20,21 @@
 </template>
 <script>
 export default {
+
   props: {
     x: Object
   },
-  mounted(){
-    console.log(this.x)
+  methods: {
+    getOne() {
+      this.$emit('getOne', 'carrier')
+    }
   }
 };
 </script>
 <style scoped>
+#card .card-container {
+  cursor: pointer;
+}
 #card .card-container .img-block img {
   width: 25rem;
   height: 14.438rem;

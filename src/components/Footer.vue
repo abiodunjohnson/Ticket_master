@@ -18,7 +18,7 @@ export default {};
 #footer .footer-block {
   display: flex;
   justify-content: space-between;
-  padding-top: 50px;
+  /* padding-top: 50px; */
 }
 
 #footer .footer-block .footer-left {
@@ -45,8 +45,8 @@ export default {};
 @media (max-width: 576px) {
   #footer .footer-block {
     display: block;
-    text-align: center;
     padding-top: 30px;
+    padding-left: 6.2rem
   }
 
   #footer .footer-block .footer-left {
@@ -60,6 +60,10 @@ export default {};
     padding-bottom: 10px;
     padding-inline-start: 0px;
   }
+
+  #footer .footer-block ul li:first-child {
+  margin-left: 0rem;
+}
 
   #footer .footer-block ul li {
     margin-right: 0rem;

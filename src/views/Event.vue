@@ -78,6 +78,18 @@ import BlankLayout from "../views/BlankLayout.vue";
 export default {
   components: {
     BlankLayout
+  },
+  data(){
+    return {
+      event:{}
+    }
+  },
+  mounted(){
+    // this.event = this.$router.params.value
+    console.log(this.$router.params)
+  },
+  methods: {
+
   }
 };
 </script>
@@ -229,4 +241,52 @@ export default {
 #event .next-container .right-container .right-content .social-block ul li {
   margin-top: 05px;
 }
+
+/* MEDIA QUEIRES */
+
+@media (max-width: 768px) {
+   #event .main-container {
+  flex-direction: column;
+}
+
+#event .main-container .right-container .right-content{
+ 
+}
+
+#event .main-container .left-container {
+  margin-right: 1rem;
+  margin-top: 50px;
+}
+#event .main-container .left-container .left-content {
+  text-align: center;
+}
+
+#event .next-container {
+flex-direction: column;
+}
+
+#event .next-container .right-container {
+  margin-left: 12.9rem;
+  margin-top: 30px;
+}
+
+
+
+}
+
+@media (max-width: 576px) {
+ #event .main-container .right-container {
+    margin-left: 6.2rem;
+}
+
+#event .next-container .left-container {
+    margin-left: 6.1rem;
+}
+
+#event .next-container .right-container[data-v-55555bd0] {
+    margin-left: 6.2rem;
+}
+}
+
+
 </style>

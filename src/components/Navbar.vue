@@ -83,5 +83,9 @@ export default {
     justify-content: space-between;
     align-items: center;
   }
+
+  #nav-bar .navbar-right .ticket__text {
+  padding-bottom: .7rem;
+}
 }
 </style>

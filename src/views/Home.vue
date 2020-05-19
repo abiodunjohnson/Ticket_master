@@ -4,36 +4,48 @@
       <h6>The best events happening now</h6>
     </div>
     <div>
-      <section v-if='this.event.events.length === 0'>
-        <h2>Loading...</h2>
+      <section v-if="this.event.events.length === 0">
+        <Loader />
       </section>
-       <section class="main-container" v-else>
-      <div v-for="event in allEvents" :key="event.id">
-        <Card :x='event' />
-      </div>
-    </section>
+      <section class="main-container" v-else>
+        <div v-for="event in allEvents" :key="event.id">
+          <Card :x="event" v-on:getOne="eventDetail(event, event.id)"/>
+        </div>
+      </section>
     </div>
   </main>
 </template>
 
 <script>
+import Loader from "../components/Loader.vue";
 import Card from "../components/Card.vue";
-import { mapActions, mapState } from 'vuex'
+import { mapActions, mapState } from "vuex";
 export default {
   components: {
-    Card
+    Card,
+    Loader
   },
   computed: {
-    ...mapState(['event']),
-    allEvents(){
+    ...mapState(["event"]),
+    allEvents() {
       return this.event.events;
     }
   },
   methods: {
-    ...mapActions(['getAllEvents']),
+    ...mapActions(["getAllEvents", "getEvent"]),
+    eventDetail(event, id) {
+      this.getEvent(id)
+      this.$router.push({
+        path: `Event/${id}`,
+        params:{
+          id: event.id,
+          value: event
+        }
+      })
+    }
   },
-  mounted(){
-    this.getAllEvents()
+  mounted() {
+    this.getAllEvents();
   }
 };
 </script>
