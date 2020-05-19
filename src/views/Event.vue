@@ -35,7 +35,7 @@
         </div>
       </div>
     </section>
-
+    <BlankLayout />
     <hr />
 
     <section class="next-container">
@@ -74,7 +74,12 @@
 </template>
 
 <script>
-export default {};
+import BlankLayout from "../views/BlankLayout.vue";
+export default {
+  components: {
+    BlankLayout
+  }
+};
 </script>
 
 <style scoped>
@@ -83,7 +88,6 @@ export default {};
 }
 
 #event .main-container .right-container {
-  /* margin-right: 15px; */
   margin-left: 13rem;
 }
 
@@ -144,6 +148,7 @@ export default {};
 #event .main-container .left-container .left-content .img-block img {
   width: 22.5rem;
   height: 23.5rem;
+  z-index: -1;
 }
 
 #event hr {

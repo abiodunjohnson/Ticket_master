@@ -36,6 +36,11 @@ export const router = new Router({
                     path:'/BlankLayout',
                     component: () => import('@/views/BlankLayout.vue')
                 },
+
+                {
+                    path:'/Loader',
+                    component: () => import('@/components/Loader.vue')
+                },
                 {
                     path:'/Register',
                     component: () => import('@/views/Register.vue')

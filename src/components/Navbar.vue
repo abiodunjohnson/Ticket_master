@@ -65,4 +65,23 @@ export default {
   border-radius: 4.06693px;
   padding: 8px 10px;
 }
+
+/* MEDIA QUEIRES */
+
+@media (max-width: 576px) {
+  #nav-bar {
+    padding: 0rem 1rem;
+  }
+
+  #nav-bar .navbar-brand-block .navbar-brand img {
+    width: 09rem;
+  }
+
+  #nav-bar .navbar-right {
+    list-style: none;
+    display: block;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
 </style>

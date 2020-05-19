@@ -16,8 +16,9 @@ export default {};
 
 #blank-layout img {
   position: absolute;
-  top: 0;
+  top: 20px;
   right: 0;
-  width: 55rem;
+  width: 46rem;
+ 
 }
 </style>

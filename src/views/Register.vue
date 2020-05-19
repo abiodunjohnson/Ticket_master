@@ -5,55 +5,151 @@
         <div class="register-heading">
           <h3>Register For free</h3>
         </div>
-        <a @click="$emit()">
+        <a>
           <img src="@/assets/img/Close.png" />
         </a>
       </div>
       <hr />
       <div class="main-detail">
-        <form class="form-container">
+        <form class="form-container" @submit.prevent='handleCreate'>
           <div class="input-block">
-            <label for="email">Full name</label>
+            <label for="name">Event name</label>
             <br />
-            <input type="name" placeholder name="email" required />
+            <input type="text" v-model ="ticket.name" placeholder required />
+          </div>
+
+
+          <div class="input-block">
+            <label for="">Description</label>
+            <br />
+            <input type="text" v-model ="ticket.description" placeholder required />
           </div>
 
           <div class="input-block">
-            <label for="email">Email address</label>
+            <label for="">End time</label>
             <br />
-            <input type="email" placeholder name="email" required />
+            <input type="text" v-model ="ticket.end_time" placeholder="2020-08-21 " required />
           </div>
 
           <div class="input-block">
-            <label for="email">Phone number</label>
+            <label for="email">Start time</label>
             <br />
-            <input type="number" placeholder name="email" required />
+            <input type="text" v-model ="ticket.start_time" placeholder="2020-08-21 " required />
           </div>
+
+           <div class="input-block">
+            <label for="Venue">Venue</label>
+            <br />
+            <input type="text" v-model ="ticket.venue" placeholder required />
+          </div>
+          <div class="input-block">
+            <label for="email">Number of tickets</label>
+            <br />
+            <input type="text" v-model ="ticket.num_of_tickets" placeholder="2020-08-21 " name required />
+          </div>
+
+          <div class="input-block">
+            <label for="email">Sale End Date</label>
+            <br />
+            <input type="text" v-model ="ticket.tickets_sale_end_date" placeholder="2020-08-21 " name= required />
+          </div>
+          <div class="input-block">
+           <select type="select-ticket" v-model="ticket.is_free">
+            <option disabled value="">Please select one</option>
+            <option id="1">Paid</option>
+            <option id="0">Free</option>
+           </select>
+          </div>
+
           <div class="btn-block">
-            <router-link to class="send-ticket">Register</router-link>
+            <button class="send-ticket" type="submit">Register</button>
           </div>
+         
         </form>
       </div>
     </div>
+    
   </main>
 </template>
 
 <script>
-export default {};
+import axios from 'axios'
+import Vue from 'vue'
+
+export default {
+  data() {
+   return {
+     ticket: {
+       name: '',
+       description: '',
+       end_time: '',
+       start_time: '',
+       venue: '',
+       num_of_tickets: '',
+       tickets_sale_end_date: '',
+       is_free: ''
+     }
+   }
+  },
+  methods:{
+    async handleCreate(e){
+      e.preventDefault();
+
+      let payload = {
+        name: this.ticket.name,
+        description: this.ticket.description,
+        end_time: this.ticket.end_time,
+        start_time: this.ticket.start_time,
+        venue: this.ticket.venue,
+        num_of_tickets: this.ticket.num_of_tickets,
+        tickets_sale_end_date: this.ticket.tickets_sale_end_date,
+        is_free: this.ticket.is_free
+      }
+
+      let url = 'https://eventsflw.herokuapp.com/v1/events'
+
+      await axios.post(url, payload)
+        .then(res => {
+          if(res.status === 200){
+            this.clearField();
+            this.hideModal()
+            Vue.$toast.open({
+              message: 'Event Created Successfully',
+              type: 'success',
+              position: 'top-right'
+            });
+          }
+        })
+    },
+    clearField() {
+      this.ticket.name = '',
+      this.ticket.description = '',
+      this.ticket.end_time = '',
+      this.ticket.start_time = '',
+      this.ticket.venue = '',
+      this.ticket.num_of_tickets = '',
+      this.ticket.tickets_sale_end_date = '',
+      this.ticket.is_free = ''
+    },
+    hideModal() {
+      this.$emit("hideModal", "carrier");
+    }
+
+  }, 
+  
+};
 </script>
 
 <style scoped>
-#register {
-  height: auto;
-}
+
 #register .main-container {
   background: #ffffff;
-  /* box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); */
   border-radius: 10px;
   width: 70%;
   height: auto;
   margin: auto;
   padding: 30px 10px 60px 10px;
+  /* overflow: hidden; */
 }
 
 #register .main-container .register-close {
@@ -98,9 +194,9 @@ export default {};
   color: #333333;
 }
 
-input[type="name"],
-[type="email"],
-[type="number"] {
+input[type="text"],
+[type="select-ticket"]
+ {
   background: #fdfdfd;
   border: 1px solid #e0e0e0;
   border-radius: 4px;
@@ -123,7 +219,8 @@ input[type="name"],
   color: #ffffff;
   border-radius: 4px;
   text-decoration: none;
-  padding: 10px 111px;
-  width: 4rem;
+  padding: 10px 11px;
+  width: 18.5rem;
+  text-align: center;
 }
 </style>

@@ -2,14 +2,15 @@
   <main id="card">
     <div class="card-container">
       <div class="img-block">
-        <img src="@/assets/img/event-image.png" alt="outgoing-card" />
+        <img v-if="x.image === null" src="@/assets/img/event-image.png" alt="outgoing-card" />
+        <img v-else :src="x.image"/>
       </div>
       <div class="detail-summary">
         <div class="event-date">
           8th
           <span>FEBRUARY</span> 2019
         </div>
-        <div class="event-name">The Nathan Cole Experience</div>
+        <div class="event-name">{{x.description}}</div>
         <div class="event-price">
           &#8358;5,000
           <span>-</span> &#8358;2,000,000
@@ -19,7 +20,14 @@
   </main>
 </template>
 <script>
-export default {};
+export default {
+  props: {
+    x: Object
+  },
+  mounted(){
+    console.log(this.x)
+  }
+};
 </script>
 <style scoped>
 #card .card-container .img-block img {

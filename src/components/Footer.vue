@@ -41,4 +41,28 @@ export default {};
   color: #4a4a4a;
   margin-right: 9rem;
 }
+
+@media (max-width: 576px) {
+  #footer .footer-block {
+    display: block;
+    text-align: center;
+    padding-top: 30px;
+  }
+
+  #footer .footer-block .footer-left {
+    margin-left: 0rem;
+  }
+
+  #footer .footer-block ul {
+    list-style: none;
+    margin-top: 20px;
+    margin-bottom: 0px;
+    padding-bottom: 10px;
+    padding-inline-start: 0px;
+  }
+
+  #footer .footer-block ul li {
+    margin-right: 0rem;
+  }
+}
 </style>
