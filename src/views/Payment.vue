@@ -23,48 +23,16 @@
               <span>FEBRUARY</span> 2019
             </div>
             <ul>
-              <li class="list-item">
-                <p class="status">Regular</p>
-                <p class="price">&#8358;5000</p>
+              <li class="list-item" v-for="status in loadData" :key="status.id">
+                <p class="status">{{status.type}}</p>
+                <p class="price">&#8358;{{status.price}}</p>
                 <div class="btn-item">
                   <div class="btn-left">
-                    <img @click.prevent="decrement" src="@/assets/img/deduct item.png" />
+                    <img @click="decrement(status.id)" src="@/assets/img/deduct item.png" />
                   </div>
-                  {{counter}}
-                  <!-- <p class="number">{{counter}}</p> -->
+                  {{count}}
                   <div class="btn-right">
-                    <img @click.prevent="increment" src="@/assets/img/Add item.png" />
-                  </div>
-                </div>
-              </li>
-              <hr class="left-line" />
-              <li class="list-item">
-                <p class="status">VIP</p>
-                <p class="price">&#8358;100,000</p>
-                <div class="btn-item">
-                  <div class="btn-left">
-                    <img @click="decrement" src="@/assets/img/deduct item.png" />
-                  </div>
-                  {{counter}}
-                  <!-- <p class="number">{{counter}}</p> -->
-                  <div class="btn-right">
-                    <img @click="increment" src="@/assets/img/Add item.png" />
-                  </div>
-                </div>
-              </li>
-              <li></li>
-              <hr class="left-line" />
-              <li class="list-item">
-                <p class="status">Table for 5</p>
-                <p class="price">&#8358;1,000,000</p>
-                <div class="btn-item">
-                  <div class="btn-left">
-                    <img @click="decrement" src="@/assets/img/deduct item.png" />
-                  </div>
-                  {{counter}}
-                  <!-- <p class="number">{{counter}}</p> -->
-                  <div class="btn-right">
-                    <img @click="increment" src="@/assets/img/Add item.png" />
+                    <img @click="increment(status.id)" src="@/assets/img/Add item.png" />
                   </div>
                 </div>
               </li>
@@ -78,67 +46,44 @@
           </div>
         </div>
       </div>
-      <div class="right-container">
-        <div class="right-content">
-          <h6>ORDER SUMMARY</h6>
-          <hr class="right-line" />
-          <div class="status-block">
-            <p class="status-right">2 - Regular</p>
-            <p class="amount-right">&#8358;10,000</p>
-          </div>
-          <div class="status-block">
-            <p class="status-right">1 - VIP</p>
-            <p class="amount-right">&#8358;100,000</p>
-          </div>
-          <hr class="right-line-bottom" />
-          <div class="status-block">
-            <p class="sub-total-right">
-              Sub
-              <span>-</span>total
-            </p>
-            <p class="amount-right">&#8358;110,000</p>
-          </div>
-          <div class="status-block">
-            <p class="vat">VAT</p>
-            <p class="amount-right">&#8358;1,000</p>
-          </div>
-
-          <div class="status-block">
-            <p class="total">TOTAL PAYMENT</p>
-            <p class="total-amount-right">&#8358;111,000</p>
-          </div>
-
-          <div class="btn-block">
-            <router-link to class="send-ticket">CONTINUE</router-link>
-          </div>
-          <div class="money-back">
-            <img src="@/assets/img/Vector.png" />
-            <div>
-              <p class="costumer">100% customer protection</p>
-              <p class="guarantee">Money back guarantee</p>
-            </div>
-          </div>
-        </div>
-      </div>
+      <PriceSidebar :oneItem="status" />
     </section>
   </main>
 </template>
 
 <script>
+import PriceSidebar from "../components/PriceSidebar";
 export default {
+  components: {
+    PriceSidebar
+  },
+
   data() {
-    return {
-      counter: 0
-    };
+    return {};
+  },
+
+  computed: {
+    loadData() {
+      return this.$store.state.item.allTypes;
+    },
+
+    count() {
+      return this.$store.state.item.quantity;
+    }
+  },
+
+  mounted() {
+    this.$store.dispatch("fetchProducts");
   },
 
   methods: {
-    increment() {
-      this.counter += 1;
+    increment(id) {
+      this.$store.dispatch("addToCart", id);
+      console.log(id);
     },
-    decrement() {
-      if (this.counter === 0) return;
-      this.counter -= 1;
+    decrement(id) {
+      this.$store.dispatch("removeFromCart", id);
+      console.log(id);
     }
   }
 };
@@ -315,146 +260,4 @@ export default {
 }
 
 /* LEFT CONTAINER */
-
-#payment .main-container .right-container {
-  background-color: #ffffff;
-  width: 30%;
-}
-
-#payment .main-container .right-container .right-content h6 {
-  font-family: Flutterwave;
-  font-size: 14px;
-  line-height: 22px;
-  letter-spacing: 0.065em;
-  text-transform: uppercase;
-  color: #333333;
-  margin-left: 3.5rem;
-}
-
-#payment .main-container .right-container .right-content .right-line {
-  width: 70%;
-  border: 0.2px solid #bdbdbd;
-}
-
-#payment .main-container .right-container .right-content .status-block {
-  display: flex;
-  justify-content: space-around;
-}
-
-#payment .main-container .right-container .right-content .right-line-bottom {
-  margin-top: 7rem;
-  width: 70%;
-  border: 0.2px solid #bdbdbd;
-}
-
-#payment
-  .main-container
-  .right-container
-  .right-content
-  .status-block
-  .status-right,
-.vat,
-.sub-total-right {
-  font-family: Flutterwave;
-  font-size: 14px;
-  line-height: 17px;
-  color: #333333;
-  font-weight: 600;
-}
-
-#payment
-  .main-container
-  .right-container
-  .right-content
-  .status-block
-  .amount-right {
-  font-family: Flutterwave;
-  font-size: 14px;
-  line-height: 17px;
-  color: #4f4f4f;
-}
-
-#payment .main-container .right-container .right-content .status-block .total {
-  font-family: Flutterwave;
-  font-size: 14px;
-  line-height: 17px;
-  text-transform: uppercase;
-  color: #333333;
-  font-weight: 600;
-}
-
-.main-container
-  .right-container
-  .right-content
-  .status-block
-  .total-amount-right {
-  font-family: Flutterwave;
-  font-size: 18px;
-  line-height: 29px;
-  text-align: right;
-  color: #333333;
-  border-radius: 4.65425px;
-  margin: 07px 0;
-  font-weight: 600;
-}
-
-#payment .main-container .right-container .right-content .btn-block {
-  text-align: center;
-  margin-top: 30px;
-}
-
-#payment
-  .main-container
-  .right-container
-  .right-content
-  .btn-block
-  .send-ticket {
-  font-family: Flutterwave;
-  text-transform: uppercase;
-  border: 1px solid #f5a623;
-  background-color: #f5a623;
-  color: #ffffff;
-  border-radius: 4px;
-  text-decoration: none;
-  padding: 10px 105px;
-  width: 0rem;
-}
-
-#payment .main-container .right-container .right-content .money-back {
-  display: flex;
-  margin-top: 20px;
-  margin-left: 3.5rem;
-}
-
-#payment .main-container .right-container .right-content .money-back img {
-  width: 21px;
-  height: 21px;
-  margin-top: 15px;
-}
-
-#payment .main-container .right-container .right-content .money-back .costumer {
-  font-family: Flutterwave;
-  font-size: 13px;
-  line-height: 14px;
-  text-align: center;
-  letter-spacing: 0.5px;
-  color: #333333;
-  margin-left: 05px;
-  font-weight: 600;
-}
-
-#payment
-  .main-container
-  .right-container
-  .right-content
-  .money-back
-  .guarantee {
-  font-family: Flutterwave;
-  font-size: 12px;
-  line-height: 14px;
-  text-align: center;
-  letter-spacing: 0.5px;
-  color: #828282;
-  margin-top: -13px;
-}
 </style>

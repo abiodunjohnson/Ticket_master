@@ -3,10 +3,15 @@
     <section class="main-container">
       <div class="left-container">
         <div class="left-content">
-          <div class="btn-block">
-            <router-link to class="send-ticket">
-              <img src="@/assets/img/Close.png" />close
-            </router-link>
+         <div class="btn-close-block">
+            <div class="register-close">
+              <a>
+                <img src="@/assets/img/Close.png" />
+              </a>
+              <div class="register-heading">
+                <h3>Close</h3>
+              </div>
+            </div>
           </div>
 
           <div class="event-name">
@@ -23,13 +28,14 @@
                 <p class="status">Regular</p>
                 <p class="price">&#8358;5000</p>
                 <div class="btn-item">
-                  <router-link to class="send-ticket deduct">
-                    <img src="@/assets/img/deduct item.png" />
-                  </router-link>
-                  <p class="number">2</p>
-                  <router-link to class="send-ticket add">
-                    <img src="@/assets/img/Add item.png" />
-                  </router-link>
+                  <div class="btn-left">
+                    <img @click="decrement" src="@/assets/img/deduct item.png" />
+                  </div>
+                  {{counter}}
+                  <!-- <p class="number">{{counter}}</p> -->
+                  <div class="btn-right">
+                    <img @click="increment" src="@/assets/img/Add item.png" />
+                  </div>
                 </div>
               </li>
               <hr class="left-line" />
@@ -37,13 +43,14 @@
                 <p class="status">VIP</p>
                 <p class="price">&#8358;100,000</p>
                 <div class="btn-item">
-                  <router-link to class="send-ticket deduct">
-                    <img src="@/assets/img/deduct item.png" />
-                  </router-link>
-                  <p class="number">1</p>
-                  <router-link to class="send-ticket add">
-                    <img src="@/assets/img/Add item.png" />
-                  </router-link>
+                  <div class="btn-left">
+                    <img @click="decrement" src="@/assets/img/deduct item.png" />
+                  </div>
+                  {{counter}}
+                  <!-- <p class="number">{{counter}}</p> -->
+                  <div class="btn-right">
+                    <img @click="increment" src="@/assets/img/Add item.png" />
+                  </div>
                 </div>
               </li>
               <li></li>
@@ -52,13 +59,14 @@
                 <p class="status">Table for 5</p>
                 <p class="price">&#8358;1,000,000</p>
                 <div class="btn-item">
-                  <router-link to class="send-ticket deduct">
-                    <img src="@/assets/img/deduct item.png" />
-                  </router-link>
-                  <p class="number">0</p>
-                  <router-link to class="send-ticket add">
-                    <img src="@/assets/img/Add item.png" />
-                  </router-link>
+                  <div class="btn-left">
+                    <img @click="decrement" src="@/assets/img/deduct item.png" />
+                  </div>
+                  {{counter}}
+                  <!-- <p class="number">{{counter}}</p> -->
+                  <div class="btn-right">
+                    <img @click="increment" src="@/assets/img/Add item.png" />
+                  </div>
                 </div>
               </li>
               <hr class="left-line" />
@@ -124,7 +132,23 @@
 </template>
 
 <script>
-export default {};
+export default {
+  data() {
+    return {
+      counter: 0
+    };
+  },
+
+  methods: {
+    increment() {
+      this.counter += 1;
+    },
+    decrement() {
+      if (this.counter === 0) return;
+      this.counter -= 1;
+    }
+  }
+};
 </script>
 
 <style scoped>
@@ -141,12 +165,65 @@ export default {};
   margin-left: 5rem;
 }
 
+
+#payment .main-container .left-container .btn-close-block {
+  padding-top: 35px;
+}
+
+#payment .main-container .left-container .register-close {
+  display: flex;
+  border: 1px solid transparent;
+  background: #ffffff;
+  border-radius: 60px;
+  padding: 04px 06px;
+  height: 1rem;
+  width: 12%;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  margin-left: 6rem;
+}
+
+#payment .main-container .left-container .register-close .register-heading h3 {
+  font-family: SFProDisplay;
+  font-size: 16px;
+  line-height: 12px;
+  letter-spacing: 0.065em;
+  font-weight: 500;
+  margin: 0px;
+  color: #333333;
+}
+#payment .main-container .left-container .register-close a {
+  margin-top: -02px;
+}
+
+#payment .main-container .left-container .register-close a img {
+  width: 13px;
+  height: 13px;
+}
+
 #payment .main-container .left-container .left-line {
   width: 78%;
 }
 
 #payment .main-container .left-container .left-below-block {
   width: 180%;
+}
+
+#payment .main-container .left-container ul .list-item .btn-item {
+  display: flex;
+  padding-top: 21px;
+}
+
+#payment .main-container .left-container ul .list-item .btn-item .btn-right {
+  padding-left: 05px;
+}
+
+#payment .main-container .left-container ul .list-item .btn-item .btn-left {
+  padding-right: 05px;
+}
+
+#payment .main-container .left-container ul .list-item .btn-item img {
+  width: 22px;
+  height: 22px;
 }
 
 #payment .main-container .left-container .btn-block .send-ticket {
@@ -404,5 +481,38 @@ input[type="name"],
   letter-spacing: 0.5px;
   color: #828282;
   margin-top: -13px;
+}
+
+
+/* MEDIA QUERIES */
+@media (max-width: 768px) {
+#payment .main-container {
+ flex-direction: column;
+}
+
+#payment .main-container .left-container .left-below-block {
+  width: 90%;
+}
+
+#payment .main-container .left-container {
+    margin-left: 0rem;
+}
+
+#payment .main-container .right-container[data-v-e0b47cf6] {
+    background-color: #ffffff;
+    width: 100%;
+}
+
+input[type="name"],
+[type="email"],
+[type="number"] {
+  background: #fdfdfd;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  padding: 10px 15px;
+  width: 20rem;
+  margin-left: 60px;
+  margin-top: 10px;
+}
 }
 </style>

@@ -17,12 +17,9 @@
             concert in Lagos, Nigeria!
             <br />Fans have waited, so long for this announcement, and it promises to be everything anyone has imagined
           </p>
-          <div class="event-price">
-            &#8358;5,000
-            <span>-</span> &#8358;2,000,000
-          </div>
+          
           <div class="btn-block">
-            <router-link to class="send-ticket">Buy Tickets</router-link>
+            <router-link to class="send-ticket">REGISTER For Free</router-link>
           </div>
         </div>
       </div>
@@ -35,9 +32,8 @@
         </div>
       </div>
     </section>
-
+    <BlankLayout />
     <hr />
-    <Register />
 
     <section class="next-container">
       <div class="left-container">
@@ -75,25 +71,36 @@
 </template>
 
 <script>
-// import Register from "./Register.vue";
+import BlankLayout from "../views/BlankLayout.vue";
 export default {
   components: {
-    // Register
+    BlankLayout
+  },
+  data(){
+    return {
+      event:{}
+    }
+  },
+  mounted(){
+    // this.event = this.$router.params.value
+    console.log(this.$router.params)
+  },
+  methods: {
+
   }
 };
 </script>
 
 <style scoped>
-#freeevent .main-container {
+#free .main-container {
   display: flex;
 }
 
-#freeevent .main-container .right-container {
-  /* margin-right: 15px; */
+#free .main-container .right-container {
   margin-left: 13rem;
 }
 
-#freeevent .main-container .right-container .right-content .event-date {
+#free .main-container .right-container .right-content .event-date {
   font-size: 18px;
   line-height: 20px;
   text-transform: uppercase;
@@ -101,7 +108,7 @@ export default {
   margin-top: 10px;
 }
 
-#freeevent .main-container .right-container .right-content .event-name {
+#free .main-container .right-container .right-content .event-name {
   font-size: 30px;
   line-height: 40px;
   color: #12122c;
@@ -109,25 +116,25 @@ export default {
   margin-top: 5px;
 }
 
-#freeevent .main-container .right-container .right-content p {
+#free .main-container .right-container .right-content p {
   font-size: 18px;
   line-height: 28px;
   color: #4a4a4a;
   width: 80%;
 }
 
-#freeevent .main-container .right-container .right-content .event-price {
+#free .main-container .right-container .right-content .event-price {
   font-size: 24px;
   line-height: 28px;
   letter-spacing: 0.5px;
   color: #333333;
 }
 
-#freeevent .main-container .right-container .right-content .btn-block {
+#free .main-container .right-container .right-content .btn-block {
   margin-top: 30px;
 }
 
-#freeevent .main-container .right-container .right-content .send-ticket {
+#free .main-container .right-container .right-content .send-ticket {
   background: #f5a623;
   border-radius: 4px;
   width: 100%;
@@ -138,35 +145,36 @@ export default {
   margin: 10px 0 22px 0;
   text-transform: uppercase;
 }
-#freeevent .main-container .left-container {
+#free .main-container .left-container {
   margin-right: 15rem;
   margin-top: 10px;
 }
 
-#freeevent .main-container .left-container .left-content .img-block img {
+#free .main-container .left-container .left-content .img-block img {
   margin-right: -30px;
 }
 
-#freeevent .main-container .left-container .left-content .img-block img {
+#free .main-container .left-container .left-content .img-block img {
   width: 22.5rem;
   height: 23.5rem;
+  z-index: -1;
 }
 
-#freeevent hr {
+#free hr {
   width: 69%;
   margin-top: 20px;
 }
 
-#freeevent .next-container {
+#free .next-container {
   display: flex;
   margin-top: 20px;
 }
 
-#freeevent .next-container .left-container {
+#free .next-container .left-container {
   margin-left: 13rem;
 }
 
-#freeevent .next-container .left-container .left-content .event-date {
+#free .next-container .left-container .left-content .event-date {
   font-family: SFProDisplay;
   font-size: 15px;
   line-height: 24px;
@@ -175,7 +183,7 @@ export default {
   color: #333333;
 }
 
-#freeevent .next-container .left-container .left-content p {
+#free .next-container .left-container .left-content p {
   font-family: Flutterwave;
   font-size: 20px;
   font-weight: 600;
@@ -184,15 +192,15 @@ export default {
   margin: 15px 0;
 }
 
-#freeevent .next-container .left-container .left-content .btn-block {
+#free .next-container .left-container .left-content .btn-block {
   color: #f5a623;
 }
 
-#freeevent .next-container .right-container {
+#free .next-container .right-container {
   margin-left: 19.3rem;
 }
 
-#freeevent .next-container .right-container .right-content .event-date {
+#free .next-container .right-container .right-content .event-date {
   font-family: SFProDisplay;
   font-size: 15px;
   line-height: 24px;
@@ -201,7 +209,7 @@ export default {
   color: #333333;
 }
 
-#freeevent .next-container .right-container .right-content p {
+#free .next-container .right-container .right-content p {
   font-family: Flutterwave;
   font-size: 20px;
   font-weight: 600;
@@ -210,7 +218,7 @@ export default {
   margin: 15px 0;
 }
 
-#freeevent
+#free
   .next-container
   .right-container
   .right-content
@@ -221,14 +229,114 @@ export default {
   line-height: 16px;
   color: #333333;
 }
-
-#freeevent .next-container .right-container .right-content .social-block ul {
+#free .next-container .right-container .right-content .social-block ul {
   list-style: none;
   padding: 0px;
-  /* margin-top: -03px; */
 }
 
-#freeevent .next-container .right-container .right-content .social-block ul li {
+#free .next-container .right-container .right-content .social-block ul li {
   margin-top: 05px;
 }
+
+/* MEDIA QUEIRES */
+
+@media (max-width: 768px) {
+   #free .main-container {
+  flex-direction: column;
+}
+
+#free .main-container .right-container .right-content .event-name {
+    font-size: 20px;
+    line-height: 30px;
+}
+
+#free .main-container .left-container .left-content .img-block img {
+    margin-right: -45px;
+}
+
+#free .main-container .left-container {
+  margin-right: 1rem;
+  margin-top: 50px;
+}
+#free .main-container .left-container .left-content {
+  text-align: center;
+}
+
+#free .next-container {
+flex-direction: column;
+}
+
+#free .next-container .right-container {
+  margin-left: 12.9rem;
+  margin-top: 30px;
+}
+}
+
+@media (max-width: 576px) {
+ #free .main-container .right-container {
+    margin-left: 6.2rem;
+}
+
+#free .next-container .left-container {
+    margin-left: 6.1rem;
+}
+
+#free .next-container .right-container {
+    margin-left: 6.2rem;
+}
+
+#free .main-container .left-container .left-content .img-block img {
+    margin-right: -35px;
+}
+
+}
+
+@media (max-width: 320px) {
+
+  #free .main-container .right-container {
+    margin-left: 3.1rem;
+}
+
+#free .main-container .right-container .right-content .event-date {
+  font-size: 16px;
+}
+
+#free .main-container .right-container .right-content p {
+  font-size: 16px;
+}
+
+#free .main-container .right-container .right-content .event-name {
+    font-size: 20px;
+    line-height: 30px;
+   
+}
+
+#free .main-container .right-container .right-content .event-price {
+  font-size: 20px;
+}
+
+  #free .main-container .left-container .left-content .img-block img {
+  width: 15.5rem;
+  height: 16.5rem;
+  
+}
+
+#free .next-container .left-container {
+    margin-left: 3.1rem ;
+}
+
+#free .main-container .right-container .right-content .send-ticket {
+    background: #f5a623;
+    border-radius: 4px;
+    width: 10%;
+    padding: 06px 65px;
+    font-size: 16px;
+}
+
+#free .next-container .right-container {
+    margin-left: 3.1rem!important;
+}
+
+}
+
 </style>

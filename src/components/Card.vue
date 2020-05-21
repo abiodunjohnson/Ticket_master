@@ -11,8 +11,7 @@
         </div>
         <div class="event-name">{{x.description}}</div>
         <div class="event-price">
-          &#8358;5,000
-          <span>-</span> &#8358;2,000,000
+          {{x.is_free}}
         </div>
       </div>
     </div>

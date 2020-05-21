@@ -4,12 +4,10 @@
       <div class="right-container">
         <div class="right-content">
           <div class="event-date">
-            8th
-            <span>FEBRUARY</span> 2019
+         {{oneEvent.start_time|eventDay}}
           </div>
           <div class="event-name">
-            The Nathan Cole
-            <br />Experience
+            {{oneEvent.description}}
           </div>
           <p>
             Two-Time Grammy Award winner. Nathaniel Cole, who's also just released an album.
@@ -44,9 +42,7 @@
           <div class="event-date">Venue</div>
 
           <p>
-            Eko Atlantic Beach, Off Ahmadu
-            <br />Bello way, Victoria island,
-            <br />Lagos.
+           {{oneEvent.venue}}
           </p>
 
           <div class="btn-block">
@@ -81,12 +77,12 @@ export default {
   },
   data(){
     return {
-      event:{}
+      oneEvent:{}
     }
   },
   mounted(){
-    // this.event = this.$router.params.value
-    console.log(this.$router.params)
+    this.oneEvent = this.$route.params.value
+    console.log(this.oneEvent)
   },
   methods: {
 
@@ -235,7 +231,6 @@ export default {
 #event .next-container .right-container .right-content .social-block ul {
   list-style: none;
   padding: 0px;
-  /* margin-top: -03px; */
 }
 
 #event .next-container .right-container .right-content .social-block ul li {
@@ -249,8 +244,13 @@ export default {
   flex-direction: column;
 }
 
-#event .main-container .right-container .right-content{
- 
+#event .main-container .right-container .right-content .event-name {
+    font-size: 20px;
+    line-height: 30px;
+}
+
+#event .main-container .left-container .left-content .img-block img {
+    margin-right: -45px;
 }
 
 #event .main-container .left-container {
@@ -269,9 +269,6 @@ flex-direction: column;
   margin-left: 12.9rem;
   margin-top: 30px;
 }
-
-
-
 }
 
 @media (max-width: 576px) {
@@ -283,10 +280,62 @@ flex-direction: column;
     margin-left: 6.1rem;
 }
 
-#event .next-container .right-container[data-v-55555bd0] {
+#event .next-container .right-container {
     margin-left: 6.2rem;
 }
+
+#event .main-container .left-container .left-content .img-block img {
+    margin-right: -35px;
 }
 
+}
+
+@media (max-width: 320px) {
+
+  #event .main-container .right-container {
+    margin-left: 3.1rem;
+}
+
+#event .main-container .right-container .right-content .event-date {
+  font-size: 16px;
+}
+
+#event .main-container .right-container .right-content p {
+  font-size: 16px;
+}
+
+#event .main-container .right-container .right-content .event-name {
+    font-size: 20px;
+    line-height: 30px;
+   
+}
+
+#event .main-container .right-container .right-content .event-price {
+  font-size: 20px;
+}
+
+  #event .main-container .left-container .left-content .img-block img {
+  width: 15.5rem;
+  height: 16.5rem;
+  
+}
+
+#event .next-container .left-container {
+    margin-left: 3.1rem ;
+}
+
+#event .main-container .right-container .right-content .send-ticket {
+    background: #f5a623;
+    border-radius: 4px;
+    width: 10%;
+    padding: 06px 65px;
+    font-size: 16px;
+}
+
+#event .next-container .right-container {
+    margin-left: 3.1rem!important;
+}
+
+}
 
 </style>

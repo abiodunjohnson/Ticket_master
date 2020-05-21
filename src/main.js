@@ -17,6 +17,13 @@ Vue.filter('eventDay', (value) => {
   return moment(value).format('Do MMMM YYYY')
 })
 
+Vue.filter('eventDay1', (value) => {
+  return moment(value).format('Do MMMM YYYY')
+})
+
+Vue.filter('eventDate', (value) => {
+return moment(value).format('LLLL')
+})
 
 new Vue({
   router,

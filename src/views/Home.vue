@@ -33,10 +33,11 @@ export default {
   },
   methods: {
     ...mapActions(["getAllEvents", "getEvent"]),
-    eventDetail(event, id) {
-      this.getEvent(id)
+    eventDetail(event) {
+      this.getEvent(event.id)
       this.$router.push({
-        path: `Event/${id}`,
+        name: 'one',
+        path: `/Event/${event.description}`,
         params:{
           id: event.id,
           value: event

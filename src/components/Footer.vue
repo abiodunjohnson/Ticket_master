@@ -26,7 +26,7 @@ export default {};
   font-size: 14px;
   line-height: 16px;
   color: #4a4a4a;
-  margin-left: 9rem;
+  margin-left: 13rem;
 }
 
 #footer .footer-block ul {
@@ -41,12 +41,33 @@ export default {};
   color: #4a4a4a;
   margin-right: 9rem;
 }
+@media (max-width: 768px) {
+  #footer .footer-block {
+   margin-left: 13rem;
+  }
 
+  #footer .footer-block .footer-left {
+  font-size: 16px;
+}
+  #footer .footer-block .footer-left {
+    margin-left: 0rem;
+}
+#footer .footer-block ul {
+  display: flex;
+  padding-left: 0px;
+  margin-right: 70px;
+}
+#footer .footer-block ul li {
+  
+  margin-right: 0rem !important;
+}
+  
+}
 @media (max-width: 576px) {
   #footer .footer-block {
     display: block;
     padding-top: 30px;
-    padding-left: 6.2rem
+    margin: 0px 0px 0px 100px;
   }
 
   #footer .footer-block .footer-left {
@@ -68,5 +89,11 @@ export default {};
   #footer .footer-block ul li {
     margin-right: 0rem;
   }
+}
+
+@media (max-width: 320px) {
+  #footer .footer-block {
+    margin-left: 13rem;
+}
 }
 </style>
