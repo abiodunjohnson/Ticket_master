@@ -3,12 +3,8 @@
     <section class="main-container">
       <div class="right-container">
         <div class="right-content">
-          <div class="event-date">
-         {{oneEvent.start_time|eventDay}}
-          </div>
-          <div class="event-name">
-            {{oneEvent.description}}
-          </div>
+          <div class="event-date">{{oneEvent.start_time|eventDay}}</div>
+          <div class="event-name">{{oneEvent.description}}</div>
           <p>
             Two-Time Grammy Award winner. Nathaniel Cole, who's also just released an album.
             <b>Into The Wild,</b> will be having his first
@@ -20,7 +16,7 @@
             <span>-</span> &#8358;2,000,000
           </div>
           <div class="btn-block">
-            <router-link to class="send-ticket">Buy Tickets</router-link>
+            <button @click="goTopay(oneEvent.id)" class="send-ticket">Buy Tickets</button>
           </div>
         </div>
       </div>
@@ -28,7 +24,7 @@
       <div class="left-container">
         <div class="left-content">
           <div class="img-block">
-            <img src="@/assets/img/event-image.png" />
+            <img :src="oneEvent.image" style="" />
           </div>
         </div>
       </div>
@@ -41,9 +37,7 @@
         <div class="left-content">
           <div class="event-date">Venue</div>
 
-          <p>
-           {{oneEvent.venue}}
-          </p>
+          <p>{{oneEvent.venue}}</p>
 
           <div class="btn-block">
             <img src="@/assets/img/map.png" /> View map for directions
@@ -70,22 +64,37 @@
 </template>
 
 <script>
+import axios from "axios";
 import BlankLayout from "../views/BlankLayout.vue";
 export default {
   components: {
     BlankLayout
   },
-  data(){
+  data() {
     return {
-      oneEvent:{}
+      oneEvent: {},
+      passEvent: {}
+    };
+  },
+
+  methods: {
+    async goTopay(id) {
+      await axios
+        .get(`https://eventsflw.herokuapp.com/v1/ticket-types/${id}`)
+        .then(res => {
+          if (res.status === 200) {
+            this.passEvent = res.data.data;
+            this.$router.push({
+              name: "payment",
+              params: { value: this.passEvent }
+            });
+          }
+        });
+      // this.$router.push('/Payment')
     }
   },
-  mounted(){
-    this.oneEvent = this.$route.params.value
-    console.log(this.oneEvent)
-  },
-  methods: {
-
+  mounted() {
+    this.oneEvent = this.$route.params.value;
   }
 };
 </script>
@@ -136,17 +145,21 @@ export default {
 #event .main-container .right-container .right-content .send-ticket {
   background: #f5a623;
   border-radius: 4px;
-  width: 100%;
+  width: 60%;
   color: #ffffff;
   border: 1px solid #f5a623;
   text-decoration: none;
-  padding: 12px 104px;
+  padding: 12px 24px;
   margin: 10px 0 22px 0;
+  cursor: pointer;
   text-transform: uppercase;
+  box-shadow: none !important;
+  outline: none !important;
 }
 #event .main-container .left-container {
-  margin-right: 15rem;
-  margin-top: 10px;
+  margin-right: -30px;
+  object-fit: contain;
+  width: 100%;
 }
 
 #event .main-container .left-container .left-content .img-block img {
@@ -240,102 +253,96 @@ export default {
 /* MEDIA QUEIRES */
 
 @media (max-width: 768px) {
-   #event .main-container {
-  flex-direction: column;
-}
+  #event .main-container {
+    flex-direction: column;
+  }
 
-#event .main-container .right-container .right-content .event-name {
+  #event .main-container .right-container .right-content .event-name {
     font-size: 20px;
     line-height: 30px;
-}
+  }
 
-#event .main-container .left-container .left-content .img-block img {
+  #event .main-container .left-container .left-content .img-block img {
     margin-right: -45px;
-}
+  }
 
-#event .main-container .left-container {
-  margin-right: 1rem;
-  margin-top: 50px;
-}
-#event .main-container .left-container .left-content {
-  text-align: center;
-}
+  #event .main-container .left-container {
+    margin-right: 1rem;
+    margin-top: 50px;
+  }
+  #event .main-container .left-container .left-content {
+    text-align: center;
+  }
 
-#event .next-container {
-flex-direction: column;
-}
+  #event .next-container {
+    flex-direction: column;
+  }
 
-#event .next-container .right-container {
-  margin-left: 12.9rem;
-  margin-top: 30px;
-}
+  #event .next-container .right-container {
+    margin-left: 12.9rem;
+    margin-top: 30px;
+  }
 }
 
 @media (max-width: 576px) {
- #event .main-container .right-container {
+  #event .main-container .right-container {
     margin-left: 6.2rem;
-}
+  }
 
-#event .next-container .left-container {
+  #event .next-container .left-container {
     margin-left: 6.1rem;
-}
+  }
 
-#event .next-container .right-container {
+  #event .next-container .right-container {
     margin-left: 6.2rem;
-}
+  }
 
-#event .main-container .left-container .left-content .img-block img {
+  #event .main-container .left-container .left-content .img-block img {
     margin-right: -35px;
-}
-
+  }
 }
 
 @media (max-width: 320px) {
-
   #event .main-container .right-container {
     margin-left: 3.1rem;
-}
+  }
 
-#event .main-container .right-container .right-content .event-date {
-  font-size: 16px;
-}
+  #event .main-container .right-container .right-content .event-date {
+    font-size: 16px;
+  }
 
-#event .main-container .right-container .right-content p {
-  font-size: 16px;
-}
+  #event .main-container .right-container .right-content p {
+    font-size: 16px;
+  }
 
-#event .main-container .right-container .right-content .event-name {
+  #event .main-container .right-container .right-content .event-name {
     font-size: 20px;
     line-height: 30px;
-   
-}
+  }
 
-#event .main-container .right-container .right-content .event-price {
-  font-size: 20px;
-}
+  #event .main-container .right-container .right-content .event-price {
+    font-size: 20px;
+  }
 
   #event .main-container .left-container .left-content .img-block img {
-  width: 15.5rem;
-  height: 16.5rem;
-  
-}
+    width: 15.5rem;
+    height: 16.5rem;
+  }
 
-#event .next-container .left-container {
-    margin-left: 3.1rem ;
-}
+  #event .next-container .left-container {
+    margin-left: 3.1rem;
+  }
 
-#event .main-container .right-container .right-content .send-ticket {
+  #event .main-container .right-container .right-content .send-ticket {
     background: #f5a623;
     border-radius: 4px;
     width: 10%;
     padding: 06px 65px;
     font-size: 16px;
-}
+  }
 
-#event .next-container .right-container {
-    margin-left: 3.1rem!important;
+  #event .next-container .right-container {
+    margin-left: 3.1rem !important;
+  }
 }
-
-}
-
 </style>

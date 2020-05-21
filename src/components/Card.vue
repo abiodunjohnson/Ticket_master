@@ -3,29 +3,27 @@
     <div class="card-container">
       <div class="img-block">
         <img v-if="x.image === null" src="@/assets/img/event-image.png" alt="outgoing-card" />
-        <img v-else :src="x.image"/>
+        <img v-else :src="x.image" />
       </div>
       <div class="detail-summary">
-        <div class="event-date">
-         {{x.start_time|eventDay}}
-        </div>
+        <div class="event-date">{{x.start_time|eventDay}}</div>
         <div class="event-name">{{x.description}}</div>
-        <div class="event-price">
-          {{x.is_free}}
-        </div>
+        <div v-if="x.is_free === false" class="event-price">N5,000 - 20,000</div>
+        <div v-if="x.is_free === true" class="event-price">Free</div>
+        <div v-if="x.is_sold_out === true" style="color: red">Sold Out</div>
+        <p v-if="x.is_sold_out === false" style="color: green">Available</p>
       </div>
     </div>
   </main>
 </template>
 <script>
 export default {
-
   props: {
     x: Object
   },
   methods: {
     getOne() {
-      this.$emit('getOne', 'carrier')
+      this.$emit("getOne", "carrier");
     }
   }
 };

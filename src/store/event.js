@@ -9,7 +9,8 @@ export default {
     state: {
         events: [],
         oneEvent: [],
-        isFetching: false
+        isFetching: false,
+        eventType: {}
     },
     mutations: {
         setEvents(state, events){
@@ -23,6 +24,9 @@ export default {
         },
         setEvent(state, one){
             state.oneEvent = one
+        },
+        setEventType(state, eventType){
+            state.eventType = eventType
         }
     },
     actions: {
@@ -56,6 +60,21 @@ export default {
                 commit('endRequest')
                 throw new Error(error.response)
             }  
+        },
+        async getEventType({commit}, id) {
+            commit('startRequest')
+            try {
+                await axios.get(`https://eventsflw.herokuapp.com/v1/ticket-types/${id}`)
+                .then(res => {
+                    if(res === 200) {
+                        commit('setEventType', res.data.data)
+                        commit('endRequest')
+                    }
+                })
+            } catch(error){
+                commit('endRequest')
+                throw new Error(error.response)
+            }
         } 
 
 

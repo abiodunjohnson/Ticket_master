@@ -62,9 +62,6 @@ export default {
   padding-left: 2rem;
 }
 
-#sidebar .right-container .right-content {
-}
-
 #sidebar .right-container .right-content h6 {
   font-family: Flutterwave;
   font-size: 14px;

@@ -52,10 +52,6 @@ export default {};
   padding: 60px 10px;
 }
 
-#no-ticket .main-detail .form-container .input-block {
-  /* margin: auto; */
-}
-
 #no-ticket .main-detail .form-container .input-block label {
   margin-left: 27px;
   font-style: normal;

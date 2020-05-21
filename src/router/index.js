@@ -58,8 +58,9 @@ export const router = new Router({
 
        },
 
-    {
-        path: '/Payment',
+       {
+        path: '/Payment/:id',
+        name: 'payment',
         component: () => import('@/views/Payment.vue')
     },
 
