@@ -11,7 +11,7 @@
         <div v-if="x.is_free === false" class="event-price">N5,000 - 20,000</div>
         <div v-if="x.is_free === true" class="event-price">Free</div>
         <div v-if="x.is_sold_out === true" style="color: red">Sold Out</div>
-        <p v-if="x.is_sold_out === false" style="color: green">Available</p>
+        <p v-if="x.is_sold_out === false" style="color: green; ">Available</p>
       </div>
     </div>
   </main>
@@ -66,6 +66,34 @@ export default {
   letter-spacing: 0.5px;
   color: #4f4f4f;
   padding-top: 04px;
-  padding-bottom: 20px;
+  padding-bottom: 0px;
+}
+
+@media (max-width: 768px) {
+  #card .card-container .detail-summary {
+  text-align: start;
+  padding-left: 135px;
+}
+
+}
+
+@media (max-width: 576px) {
+  #card .card-container .detail-summary {
+  text-align: start;
+  padding-left: 80px;
+  }
+}
+
+@media (max-width: 440px) {
+#card .card-container .img-block img {
+  width: 16rem;
+  height: 12.438rem;
+  border-radius: 10px;
+}
+
+  #card .card-container .detail-summary {
+  text-align: start;
+  padding-left: 80px;
+  }
 }
 </style>

@@ -81,13 +81,15 @@ export default {
   
 }
 }
-/* @media (max-width: 576px) {
+@media (max-width: 440px) {
   #home .home-heading h6 {
+    margin: 2rem 1rem;
     font-style: normal;
     font-weight: 900;
     font-size: 20px;
     line-height: 40px;
     color: #333333;
+    width: 100%;
   }
-} */
+}
 </style>

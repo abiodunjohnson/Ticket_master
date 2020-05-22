@@ -43,4 +43,29 @@ export default {
     overflow-y: scroll !important;
     border-radius: 10px;
 }
+
+
+/* MEDIA QUERIES */
+
+@media (max-width: 768px) {
+  .vm--modal {
+    
+    width: 300px;
+    height: 400px;
+    /* overflow-y: scroll !important;
+    border-radius: 10px; */
+}
+}
+
+
+
+@media (max-width: 576px) {
+  .vm--modal {
+    
+    width: 200px;
+    height: 300px;
+   
+}
+  
+}
 </style>
