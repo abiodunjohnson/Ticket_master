@@ -90,6 +90,10 @@ export default {};
 }
 
 @media (max-width: 320px) {
+  
+}
+
+@media (max-width: 320px) {
   #footer .footer-block {
     margin-left: 13rem;
   }

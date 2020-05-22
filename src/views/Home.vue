@@ -73,6 +73,14 @@ export default {
 }
 
 /* MEDIA QUEIRES */
+@media (max-width: 768px) {
+  #home .main-container {
+  
+  grid-template-columns:1fr;
+  text-align: center;
+  
+}
+}
 /* @media (max-width: 576px) {
   #home .home-heading h6 {
     font-style: normal;

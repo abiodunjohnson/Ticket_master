@@ -64,7 +64,8 @@
           <hr class="right-line" />
           <div class="status-block">
             <div style="display: flex; justify-content: space-between; align-items: center;">
-              <span style="font-size: 13px; margin-right: 10px;">{{countTicket}}</span>
+              <span style="font-size: 13px; ">{{countTicket}}</span>
+              <span>-</span>
               <p class="status-right">{{payObject.name}}</p>
             </div>
             <p class="amount-right" v-if="quannt !== 0">&#8358; {{price}}</p>
@@ -92,7 +93,7 @@
           </div>
           <div class="money-back">
             <img src="@/assets/img/Vector.png" />
-            <div>
+            <div class>
               <p class="costumer">100% customer protection</p>
               <p class="guarantee">Money back guarantee</p>
             </div>
@@ -133,10 +134,10 @@
 
           <div class="status-block">
             <p class="total">TOTAL PAYMENT</p>
-            <p class="total-amount-right">&#8358;111,000</p>
+            <p class="total-amount-right">&#8358;{{subTotal}}</p>
           </div>
 
-          <div class="btn-block">
+          <div class="btn-block1">
             <router-link to class="send-ticket">CONTINUE</router-link>
           </div>
           <div class="money-back">
@@ -148,39 +149,6 @@
           </div>
         </div>
       </div>
-      <!-- <div class="right-container" v-if="show2">
-      <div class="right-content">
-        <h6>Go Back</h6>
-        <hr class="right-line" />
-      </div>
-      <div >
-        <form>
-          <div style="display: flex; flex-direction: column;">
-            <label>Full Name</label>
-            <input type="text" name="" id="">
-          </div>
-          <div style="display: flex; flex-direction: column;">
-            <label>Email Address</label>
-            <input type="email" name="" id="">
-          </div>
-          <div style="display: flex; flex-direction: column;">
-            <label>Phone Number</label>
-            <input type="text" name="" id="">
-          </div>
-        </form>
-      </div>
-
-        <div class="btn-block">
-          <button class="send-ticket">CONTINUE</button>
-        </div>
-        <div class="money-back">
-          <img src="@/assets/img/Vector.png" />
-          <div>
-            <p class="costumer">100% customer protection</p>
-            <p class="guarantee">Money back guarantee</p>
-          </div>
-        </div>
-      </div>-->
     </section>
   </main>
 </template>
@@ -356,8 +324,13 @@ export default {
   padding-top: 21px;
 }
 
+#payment .main-container .left-container ul .list-item .btn-item button {
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
 #payment .main-container .left-container ul .list-item .btn-item .btn-right {
-  padding-left: 05px;
+  padding-left: 04px;
 }
 
 #payment .main-container .left-container ul .list-item .btn-item .btn-left {
@@ -420,9 +393,7 @@ export default {
 #payment .main-container .right-container {
   background-color: #ffffff;
   width: 30%;
-  /* padding-right: 2rem;
-  padding-left: 2rem;
-} */
+  padding-top: 30px;
 }
 
 #payment .main-container .right-container .right-content h6 {
@@ -436,6 +407,10 @@ export default {
   margin-top: 0rem;
 }
 
+#payment .main-container .right-container .right-content .go-back-block img {
+  margin-left: 3.2rem;
+}
+
 #payment .main-container .right-container .right-content .right-line {
   width: 70%;
   border: 0.2px solid #bdbdbd;
@@ -443,7 +418,9 @@ export default {
 
 #payment .main-container .right-container .right-content .status-block {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
+  padding-right: 59px;
+  padding-left: 59px;
 }
 
 #payment .main-container .right-container .right-content .right-line-bottom {
@@ -452,19 +429,27 @@ export default {
   border: 0.2px solid #bdbdbd;
 }
 
+#payment .main-container .right-container .right-content .status-block .vat {
+  font-family: Flutterwave;
+  font-size: 14px;
+  line-height: 17px;
+  color: #333333;
+  font-weight: 600;
+  /* margin-right: 140px; */
+}
 #payment
   .main-container
   .right-container
   .right-content
   .status-block
   .status-right,
-.vat,
 .sub-total-right {
   font-family: Flutterwave;
   font-size: 14px;
   line-height: 17px;
   color: #333333;
   font-weight: 600;
+  margin-right: 80px;
 }
 
 #payment
@@ -509,6 +494,27 @@ export default {
   margin-top: 30px;
 }
 
+#payment .main-container .right-container .right-content .btn-block1 {
+  text-align: center;
+  margin-top: 30px;
+}
+
+#payment
+  .main-container
+  .right-container
+  .right-content
+  .btn-block1
+  .send-ticket {
+  font-family: Flutterwave;
+  text-transform: uppercase;
+  border: 1px solid #f5a623;
+  background-color: #f5a623;
+  color: #ffffff;
+  border-radius: 4px;
+  text-decoration: none;
+  padding: 10px 105px;
+}
+
 #payment
   .main-container
   .right-container
@@ -522,10 +528,11 @@ export default {
   color: #ffffff;
   border-radius: 4px;
   text-decoration: none;
-  padding: 10px 105px;
+  padding: 10px 105px; 
+  font-size: 18px;
 }
 
-#sidebar .right-container .right-content .money-back {
+#payment .right-container .right-content .money-back {
   display: flex;
   margin-top: 20px;
   margin-left: 3.5rem;
@@ -563,5 +570,224 @@ export default {
   margin-top: -13px;
 }
 
-/* LEFT CONTINAER 2 */
+input[type="name"],
+[type="email"],
+[type="number"] {
+  background: #fdfdfd;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  padding: 10px 15px;
+  width: 16.5rem;
+  margin-left: 48px;
+  margin-top: 10px;
+}
+
+#payment .main-detail .form-container .input-block {
+  margin-top: 30px;
+}
+
+#payment .main-detail .form-container .input-block label {
+  margin-left: 57px;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 12px;
+  letter-spacing: 0.5px;
+  color: #333333;
+}
+
+/* MEDIA QUERIES */
+@media (max-width: 768px) {
+  #payment .main-container {
+    flex-direction: column;
+  }
+
+  #payment .main-container .left-container .register-close {
+    width: 7%;
+    margin-left: 3rem;
+  }
+
+  #payment .main-container .left-container .left-below-block {
+    width: 90%;
+    margin-left: 35px;
+  }
+
+  #payment .main-container .right-container .right-content .go-back-block {
+    margin-left: 3.2rem;
+  }
+
+  #payment .main-container .left-container {
+    margin-left: 0rem;
+  }
+
+  #payment .main-container .right-container {
+    background-color: #ffffff;
+    width: 100%;
+  }
+
+  #payment .main-container .right-container .right-content .go-back-block img {
+    margin-left: 0.2rem;
+  }
+
+  #payment .main-container .right-container .right-content h6 {
+    margin-left: 3.2rem;
+  }
+
+  #payment .main-container .right-container .right-content .go-back-block h6 {
+    margin-left: .2rem;
+  }
+  input[type="name"],
+  [type="email"],
+  [type="number"] {
+    margin-left: 100px;
+    width: 31rem;
+  }
+
+  #payment .main-detail .form-container .input-block label {
+    margin-left: 100px;
+  }
+
+  #payment .main-container .left-container .event-date {
+    margin-left: 1rem;
+  }
+
+  #payment .main-container .left-container .event-name {
+    margin-left: 3rem;
+  }
+
+  #payment .main-container .left-container .expire {
+    margin-left: 4.4rem;
+  }
+
+  #payment .main-container .right-container .right-content .status-block {
+    display: flex;
+    justify-content: space-between;
+    padding-right: 109px;
+    padding-left: 109px;
+  }
+
+  #payment .right-container .right-content .money-back {
+    margin-left: 13rem;
+  }
+}
+
+@media (max-width: 676px) {
+ input[type="name"],
+  [type="email"],
+  [type="number"] {
+    margin-left: 100px;
+    width: 25rem;
+  }
+
+}
+
+@media (max-width: 576px) {
+  #payment .main-container .right-container .right-content .status-block {
+    display: flex;
+    justify-content: space-between;
+    padding-right: 82px;
+    padding-left: 82px;
+  }
+
+  #payment .right-container .right-content .money-back {
+    margin-left: 6rem;
+  }
+
+  #payment .main-container .right-container .right-content .go-back-block img {
+    margin-left: 0.2rem;
+  }
+
+  #payment .main-container .left-container .expire {
+    margin-left: 3.2rem;
+  }
+
+  input[type="name"],
+  [type="email"],
+  [type="number"] {
+    margin-left: 80px;
+    width: 23.4rem;
+  }
+
+  #payment .main-detail .form-container .input-block label {
+    margin-left: 80px;
+  }
+}
+
+@media (max-width: 440px) {
+  #payment .main-container .left-container .register-close {
+    width: 15%;
+  }
+
+  #payment .main-container .right-container .right-content .status-block {
+    padding-right: 62px;
+    padding-left: 62px;
+  }
+
+  #payment .right-container .right-content .money-back {
+    margin-left: 5.2rem;
+  }
+
+  #payment .main-detail .form-container .input-block label {
+    margin-left: 60px;
+  }
+
+  #payment .main-container .right-container .right-content .go-back-block img {
+    margin-left: 0rem;
+  }
+
+  input[type="name"],
+  [type="email"],
+  [type="number"] {
+    width: 16.7rem;
+    margin-left: 62px;
+  }
+
+  #payment
+    .main-container
+    .right-container
+    .right-content
+    .btn-block
+    .send-ticket {
+    padding: 10px 85px;
+  }
+}
+
+@media (max-width: 320px) {
+  #payment .right-container .right-content .money-back {
+    margin-left: 1.5rem;
+  }
+
+  #payment .main-container .right-container .right-content .go-back-block img {
+    margin-right: 1rem;
+  }
+
+  #payment .main-container .right-container .right-content .status-block {
+    padding-right: 42px;
+    padding-left: 42px;
+  }
+
+  #payment .main-container .left-container .expire {
+    margin-left: 1.2rem;
+  }
+
+  #payment .main-container .left-container .register-close {
+    width: 20%;
+    margin-left: 3rem;
+  }
+
+  #payment
+    .main-container
+    .right-container
+    .right-content
+    .btn-block
+    .send-ticket {
+    padding: 10px 85px;
+  }
+
+  input[type="name"],
+  [type="email"],
+  [type="number"] {
+    width: 1.5rem;
+  }
+}
 </style>

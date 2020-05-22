@@ -24,7 +24,7 @@
       <div class="left-container">
         <div class="left-content">
           <div class="img-block">
-            <img :src="oneEvent.image" style="" />
+            <img :src="oneEvent.image" style />
           </div>
         </div>
       </div>
@@ -262,8 +262,13 @@ export default {
     line-height: 30px;
   }
 
-  #event .main-container .left-container .left-content .img-block img {
+  /* #event .main-container .left-container .left-content .img-block img {
     margin-right: -45px;
+  } */
+
+  #event hr {
+    width: 51%;
+    margin-top: 20px;
   }
 
   #event .main-container .left-container {
@@ -297,9 +302,31 @@ export default {
     margin-left: 6.2rem;
   }
 
-  #event .main-container .left-container .left-content .img-block img {
-    margin-right: -35px;
+  #event .main-container .left-container .left-content .img-block {
+    margin-left: -35px;
   }
+
+  #event .main-container .left-container .left-content .img-block img {
+    /* margin-right: -35px; */
+  }
+
+  #event hr {
+    width: 56%;
+    margin-top: 20px;
+  }
+}
+
+@media (max-width: 440px) {
+  #event .main-container .left-container .left-content .img-block img {
+    width: 15.5rem;
+    height: 14.5rem;
+  }
+
+  #event .main-container .left-container .left-content .img-block {
+    margin-right: -30px;
+  }
+
+  
 }
 
 @media (max-width: 320px) {
@@ -310,6 +337,11 @@ export default {
   #event .main-container .right-container .right-content .event-date {
     font-size: 16px;
   }
+
+  /* #event hr {
+    width: 56%;
+    margin-top: 20px;
+} */
 
   #event .main-container .right-container .right-content p {
     font-size: 16px;
@@ -326,7 +358,7 @@ export default {
 
   #event .main-container .left-container .left-content .img-block img {
     width: 15.5rem;
-    height: 16.5rem;
+    height: 14.5rem;
   }
 
   #event .next-container .left-container {
