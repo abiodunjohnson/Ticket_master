@@ -72,7 +72,7 @@ export default {
 @media (max-width: 768px) {
   #card .card-container .detail-summary {
   text-align: start;
-  padding-left: 135px;
+  padding-left: 185px;
 }
 
 }
@@ -80,7 +80,7 @@ export default {
 @media (max-width: 576px) {
   #card .card-container .detail-summary {
   text-align: start;
-  padding-left: 80px;
+  padding-left: 64px;
   }
 }
 
@@ -95,5 +95,15 @@ export default {
   text-align: start;
   padding-left: 80px;
   }
+
 }
+
+@media (max-width: 375px) {
+   #card .card-container .detail-summary {
+     padding-left: 60px;
+   }
+}
+
+ 
+
 </style>

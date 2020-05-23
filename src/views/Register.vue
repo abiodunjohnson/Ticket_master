@@ -223,4 +223,21 @@ input[type="text"],
   width: 18.5rem;
   text-align: center;
 }
+/* MEDIA QUERIES */
+
+@media (max-width: 414px) {
+ input[type="text"],
+[type="select-ticket"]
+ {
+  width: 13.5rem !important;
+}
+}
+
+@media (max-width: 375px) {
+ input[type="text"],
+[type="select-ticket"]
+ {
+  width: 13.5rem !important;
+}
+}
 </style>

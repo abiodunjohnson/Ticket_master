@@ -85,7 +85,44 @@ export default {
   }
 
   #nav-bar .navbar-right .ticket__text {
-  padding-bottom: .7rem;
+    padding-bottom: 0.7rem;
+  }
 }
+
+@media (max-width: 411px) {
+  #nav-bar .navbar-right .create-event-btn {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 414px) {
+  #nav-bar .navbar-right .create-event-btn {
+    padding: 8px 04px;
+  }
+}
+
+@media (max-width: 375px) {
+  #nav-bar .navbar-right .create-event-btn {
+    font-size: 11px;
+  }
+
+  #nav-bar .navbar-right .ticket__text {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 360px) {
+  #nav-bar .navbar-right .create-event-btn {
+    font-size: 09px;
+  }
+}
+
+
+
+@media (max-width: 320px) {
+  #nav-bar .navbar-right .create-event-btn {
+    font-size: 07px !important;
+    padding: 8px 01px;
+  }
 }
 </style>

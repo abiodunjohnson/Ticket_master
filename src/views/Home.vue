@@ -9,7 +9,7 @@
       </section>
       <section class="main-container" v-else>
         <div v-for="event in allEvents" :key="event.id">
-          <Card :x="event" v-on:getOne="eventDetail(event, event.id)"/>
+          <Card :x="event" v-on:getOne="eventDetail(event, event.id)" />
         </div>
       </section>
     </div>
@@ -34,15 +34,15 @@ export default {
   methods: {
     ...mapActions(["getAllEvents", "getEvent"]),
     eventDetail(event) {
-      this.getEvent(event.id)
+      this.getEvent(event.id);
       this.$router.push({
-        name: 'one',
+        name: "one",
         path: `/Event/${event.description}`,
-        params:{
+        params: {
           id: event.id,
           value: event
         }
-      })
+      });
     }
   },
   mounted() {
@@ -75,11 +75,9 @@ export default {
 /* MEDIA QUEIRES */
 @media (max-width: 768px) {
   #home .main-container {
-  
-  grid-template-columns:1fr;
-  text-align: center;
-  
-}
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
 }
 @media (max-width: 440px) {
   #home .home-heading h6 {
@@ -90,6 +88,27 @@ export default {
     line-height: 40px;
     color: #333333;
     width: 100%;
+  }
+}
+@media (max-width: 411px) {
+  #home .home-heading h6 {
+    width: 90%;
+  }
+}
+
+@media (max-width: 375px) {
+  #nav-bar .navbar-right .create-event-btn {
+    font-size: 10px;
+  }
+
+  #card .card-container .detail-summary {
+    padding-left: 65px;
+  }
+}
+
+@media (max-width: 320px) {
+  #card .card-container .detail-summary {
+    padding-left: 35px;
   }
 }
 </style>

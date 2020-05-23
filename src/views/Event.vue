@@ -169,7 +169,7 @@ export default {
 #event .main-container .left-container .left-content .img-block img {
   width: 22.5rem;
   height: 23.5rem;
-  z-index: -1;
+ border-radius: 10px;
 }
 
 #event hr {
@@ -306,8 +306,8 @@ export default {
     margin-left: -35px;
   }
 
-  #event .main-container .left-container .left-content .img-block img {
-    /* margin-right: -35px; */
+  #event .main-container .right-container .right-content .send-ticket {
+    width: 75%;
   }
 
   #event hr {
@@ -325,23 +325,60 @@ export default {
   #event .main-container .left-container .left-content .img-block {
     margin-right: -30px;
   }
-
-  
 }
 
-@media (max-width: 320px) {
+@media (max-width: 414px) {
+  #event .main-container .right-container .right-content .send-ticket {
+    margin: 0px;
+  }
+}
+ @media (max-width: 414px) {
+  #event .main-container .left-container .left-content .img-block {
+    margin-right: -01px;
+  }
+
   #event .main-container .right-container {
-    margin-left: 3.1rem;
+    margin-left: 4.9rem;
   }
 
-  #event .main-container .right-container .right-content .event-date {
-    font-size: 16px;
+  #event .next-container .left-container {
+    margin-left: 4.9rem;
   }
 
-  /* #event hr {
-    width: 56%;
-    margin-top: 20px;
-} */
+  #event .next-container .right-container {
+    margin-left: 4.9rem;
+  }
+}
+
+@media (max-width: 375px) {
+  #event .main-container .right-container {
+    margin-left: 3.8rem;
+  }
+
+  #event .main-container .right-container {
+    margin-left: 3.8rem !important;
+  }
+
+  #event .next-container .right-container {
+    margin-left: 3.9rem !important;
+  }
+
+  #event .main-container .right-container .right-content .send-ticket {
+    width: 90% !important;
+    margin: 0px;
+  }
+
+  #event .main-container .left-container {
+    margin-top: 35px;
+  }
+
+  #event hr {
+    width: 66%;
+  }
+
+  #event .main-container .left-container .left-content .img-block {
+    margin-right: -0px;
+  }
 
   #event .main-container .right-container .right-content p {
     font-size: 16px;
@@ -375,6 +412,36 @@ export default {
 
   #event .next-container .right-container {
     margin-left: 3.1rem !important;
+  }
+}
+
+@media (max-width: 320px) {
+  #event .main-container .right-container {
+    margin-left: 3.3rem !important;
+  }
+}
+    
+@media (max-width: 320px) {
+  #event .main-container .right-container {
+    margin-left: 2rem !important;
+  }
+
+  #event .next-container .left-container {
+    margin-left: 2.3rem;
+  }
+
+  #event .next-container .right-container {
+    margin-left: 2.3rem !important;
+  }
+
+  #event hr {
+    width: 76%;
+  }
+}
+
+@media (max-width: 375px) {
+  #event .main-container .right-container {
+    /* margin-left: 0rem !important; */
   }
 }
 </style>

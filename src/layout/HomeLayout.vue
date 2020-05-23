@@ -49,23 +49,51 @@ export default {
 
 @media (max-width: 768px) {
   .vm--modal {
-    
     width: 300px;
     height: 400px;
-    /* overflow-y: scroll !important;
-    border-radius: 10px; */
 }
 }
-
-
 
 @media (max-width: 576px) {
-  .vm--modal {
-    
+  .vm--modal { 
     width: 200px;
-    height: 300px;
-   
+    height: 300px; 
 }
   
+}
+
+@media (max-width: 414px) {
+
+  .vm--modal {
+     left: 25px !important;
+    width: 320px !important;
+    height: 400px !important;
+}
+
+#register .main-container {
+  width: 100% !important;
+}
+
+#register .main-container .main-detail .form-container .btn-block .send-ticket[data-v-63ae9146] {
+    
+    
+    width: 15.5rem;
+    
+    margin-right: 20px;
+}
+}
+
+@media (max-width: 375px) {
+
+  .vm--modal {
+     left: 25px !important;
+    width: 320px !important;
+    height: 400px !important;
+}
+
+#register .main-container {
+  width: 100% !important;
+}
+ 
 }
 </style>

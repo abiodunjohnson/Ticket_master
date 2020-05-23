@@ -528,7 +528,7 @@ export default {
   color: #ffffff;
   border-radius: 4px;
   text-decoration: none;
-  padding: 10px 105px; 
+  padding: 10px 105px;
   font-size: 18px;
 }
 
@@ -634,7 +634,7 @@ input[type="name"],
   }
 
   #payment .main-container .right-container .right-content .go-back-block h6 {
-    margin-left: .2rem;
+    margin-left: 0.2rem;
   }
   input[type="name"],
   [type="email"],
@@ -672,13 +672,12 @@ input[type="name"],
 }
 
 @media (max-width: 676px) {
- input[type="name"],
+  input[type="name"],
   [type="email"],
   [type="number"] {
     margin-left: 100px;
     width: 25rem;
   }
-
 }
 
 @media (max-width: 576px) {
@@ -752,6 +751,61 @@ input[type="name"],
   }
 }
 
+@media (max-width: 414px) {
+  #payment .main-container .left-container ul .list-item .status {
+    margin-right: .1rem !important;
+    font-family: Flutterwave;
+    font-size: 18px;
+    line-height: 24px;
+    color: #333333;
+    margin-right: .5rem;
+  }
+
+  #payment .main-container .left-container .left-line {
+    width: 83%;
+  }
+}
+
+
+@media (max-width: 375px) {
+  #payment .main-container .left-container ul .list-item .status {
+    margin-left: 0rem;
+  }
+
+  #payment .main-container .left-container .expire {
+    margin-left: 1.2rem;
+  }
+
+  #payment .main-container .left-container .left-line {
+    width: 88%;
+  }
+
+  #payment .main-container .left-container ul .list-item .price {
+    margin-right: 0px;
+  }
+
+  #payment .main-container .right-container .right-content .right-line {
+    width: 80%;
+    margin-left: 50px;
+  }
+
+  #payment .main-container .right-container .right-content .right-line-bottom {
+    width: 80%;
+    margin-left: 50px;
+  }
+
+  #payment .main-detail .form-container .input-block label {
+    margin-left: 39px;
+}
+
+  input[type="name"],
+  [type="email"],
+  [type="number"] {
+    
+    margin-left: 39px;
+  }
+}
+
 @media (max-width: 320px) {
   #payment .right-container .right-content .money-back {
     margin-left: 1.5rem;
@@ -787,7 +841,18 @@ input[type="name"],
   input[type="name"],
   [type="email"],
   [type="number"] {
-    width: 1.5rem;
+    width: 12.5rem;
+    margin-left: 38px;
   }
+
+  #payment .main-container .right-container .right-content .btn-block1 .send-ticket {
+    padding: 10px 75px;
+  }
+
+  #payment .main-detail .form-container .input-block label {
+    margin-left: 42px;
 }
+}
+
+
 </style>
