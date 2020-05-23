@@ -438,10 +438,4 @@ export default {
     width: 76%;
   }
 }
-
-@media (max-width: 375px) {
-  #event .main-container .right-container {
-    /* margin-left: 0rem !important; */
-  }
-}
 </style>

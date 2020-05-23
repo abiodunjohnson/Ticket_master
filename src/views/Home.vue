@@ -59,8 +59,6 @@ export default {
   grid-gap: 0px;
   margin: auto;
 }
-
-/* grid-template-columns: repeat(3fr, minmax(225px, 1fr)); */
 /* WALLET CARD LEFT START  */
 
 #home .home-heading h6 {

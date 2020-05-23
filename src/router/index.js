@@ -46,11 +46,14 @@ export const router = new Router({
                     path:'/Register',
                     component: () => import('@/views/Register.vue')
                 },
-
                 {
-                    path:'/RegisterationSucessful',
-                    component: () => import('@/views/RegisterationSucessful.vue')
-                }
+                    path: '/success',
+                    component: () => import('@/views/DidntGetTicketSuccessful.vue')
+                },
+                // {
+                //     path:'/RegisterationSucessful',
+                //     component: () => import('@/views/RegisterationSucessful.vue')
+                // }
 
 
                

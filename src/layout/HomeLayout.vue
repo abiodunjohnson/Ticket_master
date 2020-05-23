@@ -5,6 +5,7 @@
     <modal name="register-modal" :width="500" :height="600">
       <Register v-on:hideModal="hide" />
     </modal>
+    
     <Footer />
   </main>
 </template>

@@ -104,9 +104,9 @@
       <div class="right-container" v-if="show2">
         <div class="right-content">
           <div class="go-back-block">
-            <router-link to class="send-ticket deduct">
-              <img src="@/assets/img/arrow-left 1.png" />
-            </router-link>
+            <div class="send-ticket deduct">
+              <img @click="showOther" src="@/assets/img/arrow-left 1.png" />
+            </div>
             <h6>Go back</h6>
           </div>
           <hr class="right-line" />
@@ -115,19 +115,19 @@
               <div class="input-block">
                 <label for="email">Full name</label>
                 <br />
-                <input type="name" placeholder name="email" required />
+                <input type="name" placeholder name="email" v-model="user.name" required />
               </div>
 
               <div class="input-block">
                 <label for="email">Email address</label>
                 <br />
-                <input type="email" placeholder name="email" required />
+                <input type="email" placeholder name="email" v-model="user.email" required />
               </div>
 
               <div class="input-block">
                 <label for="email">Phone number</label>
                 <br />
-                <input type="number" placeholder name="email" required />
+                <input type="text" placeholder name="email" v-model="user.phone" required />
               </div>
             </form>
           </div>
@@ -138,7 +138,7 @@
           </div>
 
           <div class="btn-block1">
-            <router-link to class="send-ticket">CONTINUE</router-link>
+             <div @click="createOrder(payObject.event_id)" :disabled="disabled" class="send-ticket">CONTINUE</div>
           </div>
           <div class="money-back">
             <img src="@/assets/img/Vector.png" />
@@ -150,20 +150,56 @@
         </div>
       </div>
     </section>
+
+    <Rave
+       v-if="flutterOpen"
+       style-class="paymentbtn"
+       :email="email"
+       :amount="amount"
+       :reference="reference"
+       :rave-key="raveKey"
+       :callback="callback"
+       :close="close"
+       :paymentPlan="plan"
+       :customerFirstname="fname"
+       paymentOptions="card,barter,account,ussd"
+       hostedPayemt="1"
+       customTitle="Pay for Ticket"
+       currency="NGN"
+       country="NG"
+   ><i>Pay Me, My Money</i></Rave>
   </main>
 </template>
 
 <script>
+import axios from 'axios'
+import Rave from 'vue-ravepayment';
 export default {
+   components: {
+    Rave
+  },
   data() {
     return {
+       blurBrn: true,
       payObject: {},
       quannt: 0,
+       currency: "NGN",
+      country: "NG",
       countTicket: 0,
       disabled: true,
       vat: 100,
       show: true,
-      show2: false
+     show2: false,
+      user: {
+        email: '',
+        phone: '',
+        name: ''
+      },
+      flutterOpen: false,
+      raveKey:'FLWPUBK-0a6ee03e40e2ae7bee6e0e5e90df97cc-X',
+      email: "",
+      amount: "",
+      fname: "",
     };
   },
   watch: {
@@ -177,7 +213,18 @@ export default {
           this.disabled = true;
         }
       }
-    }
+    },
+    'user.phone': {
+      deep: true,
+      immediate: true,
+      handler(x){
+        if(this.user.phone != undefined){
+           const result = x.replace(/\D/g, "")
+          .replace(/\B(?=(\d{3})+(?!\d))/g, "");
+          this.user.phoneNumber = result;
+        }
+      }
+    },
   },
   computed: {
     price() {
@@ -189,9 +236,15 @@ export default {
     },
     subTotal() {
       return this.quannt > 0 ? this.price + this.vat : 0;
+    },
+    reference() {
+      let text = "";
+      let possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+      for (let i = 0; i < 10; i++)
+      text += possible.charAt(Math.floor(Math.random() * possible.length));
+      return text;
     }
   },
-
   mounted() {
     this.payObject = this.$route.params.value;
   },
@@ -208,8 +261,47 @@ export default {
     hide() {
       this.show = false;
       this.show2 = true;
+    },
+    showOther(){
+      this.show2 = false;
+      this.show = true;
+    },
+    async createOrder(id){
+      let payload = {
+        event_id: id,
+        email: this.user.email,
+        phone: this.user.phone,
+        name: this.user.name,
+        base_amount: this.subTotal,
+        value_added_tax: this.vat,
+        tickets_bought: this.quannt
+      }
+      let url = `https://eventsflw.herokuapp.com/v1/orders`
+      await axios.post(url, payload)
+        .then(res => {
+          console.log(res)
+          if(res.status === 200){
+            let {email,name} = this.user
+            this.email = email
+            this.amount = this.subTotal
+            this.fname = name
+            this.flutterOpen = true;
+          }
+        })
+    },
+    clearFields(){
+      this.user.email = '';
+      this.user.phone = '';
+      this.user.name = '';
+    },
+    callback(response){
+      console.log(response)
+    },
+    close(){
+      console.log("Payment closed")
+      this.$router.push('/')
     }
-  }
+  },
 };
 </script>
 
@@ -298,6 +390,20 @@ export default {
   margin-top: 25px;
   font-size: 27px;
   margin-left: 6rem;
+}
+
+.paymentbtn{
+  text-transform: uppercase;
+  color: #ffffff;
+  border: 1px solid #f5a623;
+  background-color: #f5a623;
+  width: 100%;
+  margin-right: auto;
+  height: 49px;
+  position: absolute !important;
+  right: 0 !important;
+  display: flex;
+  justify-content: flex-end;
 }
 
 #payment .main-container .left-container .event-date {
@@ -800,8 +906,7 @@ input[type="name"],
 
   input[type="name"],
   [type="email"],
-  [type="number"] {
-    
+  [type="number"] {  
     margin-left: 39px;
   }
 }
@@ -853,6 +958,4 @@ input[type="name"],
     margin-left: 42px;
 }
 }
-
-
 </style>

@@ -2,7 +2,7 @@
   <main id="registersuccess">
     <div class="main-container">
       <div class="register-close">
-        <a>
+        <a @click="hideModal">
           <img src="@/assets/img/Close.png" />
         </a>
       </div>
@@ -12,7 +12,7 @@
           <img src="@/assets/img/check-circle.png" alt="website logo" />
         </div>
         <div class="success-text">
-          <h3>You have successfully registered for the nathan cole experience.</h3>
+          <h3>You have successfully registered for.</h3>
         </div>
       </div>
     </div>
@@ -20,7 +20,13 @@
 </template>
 
 <script>
-export default {};
+export default {
+  methods: {
+    hideModal(){
+      this.$emit("hideModal", "carrier")
+    }
+  }
+};
 </script>
 
 <style scoped>

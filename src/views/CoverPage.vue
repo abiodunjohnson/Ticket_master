@@ -51,16 +51,12 @@ export default {};
 }
 
 #coverpage .main-container .img-line-block1 {
-  /* margin-right: 5rem; */
-  /* padding-top: 3rem; */
-  /* margin-top: -px; */
   text-align: center;
   margin-left: 4.6rem;
 }
 
 #coverpage .main-container .img-line-block1 img {
   height: 6rem;
-  /* text-align: center; */
 }
 
 #coverpage .main-container .cover-text {

@@ -5,7 +5,7 @@
         <div class="register-heading">
           <h3>Register For free</h3>
         </div>
-        <a>
+        <a @click="hideModal">
           <img src="@/assets/img/Close.png" />
         </a>
       </div>
@@ -64,19 +64,27 @@
           <div class="btn-block">
             <button class="send-ticket" type="submit">Register</button>
           </div>
-         
+          <modal 
+            name="hello-modal"
+            :width="500"
+            :height="600"
+          >
+            <success-modal :name="ticket"  v-on:hideModal="hideSuccess" />
+          </modal>
         </form>
       </div>
     </div>
-    
   </main>
 </template>
 
 <script>
 import axios from 'axios'
-import Vue from 'vue'
+import SuccessModal from '../components/successModal.vue'
 
 export default {
+  components:{
+    SuccessModal
+  },
   data() {
    return {
      ticket: {
@@ -88,8 +96,11 @@ export default {
        num_of_tickets: '',
        tickets_sale_end_date: '',
        is_free: ''
-     }
+     },
    }
+  },
+  updated(){
+    console.log('mokiiing',this.ticket)
   },
   methods:{
     async handleCreate(e){
@@ -112,12 +123,11 @@ export default {
         .then(res => {
           if(res.status === 200){
             this.clearField();
-            this.hideModal()
-            Vue.$toast.open({
-              message: 'Event Created Successfully',
-              type: 'success',
-              position: 'top-right'
-            });
+            console.log('i got here')
+             this.$modal.show("success-modal")
+             console.log('i got here---')
+            this.hideModal();
+            console.log('i got here also')
           }
         })
     },
@@ -133,8 +143,13 @@ export default {
     },
     hideModal() {
       this.$emit("hideModal", "carrier");
+    },
+    showSuccess(){
+      this.$modal.show("success-modal")
+    },
+    hideSuccess(){
+      this.$modal.hide("success-modal")
     }
-
   }, 
   
 };
