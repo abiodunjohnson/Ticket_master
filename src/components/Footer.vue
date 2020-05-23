@@ -89,13 +89,17 @@ export default {};
   }
 }
 
-@media (max-width: 320px) {
-  
+@media (max-width: 375px) {
+  #footer .footer-block {
+    display: block;
+    padding-top: 30px;
+    margin: 0px 0px 0px 60px;
+}
 }
 
 @media (max-width: 320px) {
   #footer .footer-block {
-    margin-left: 13rem;
+    margin-left: 2rem;
   }
 }
 </style>
