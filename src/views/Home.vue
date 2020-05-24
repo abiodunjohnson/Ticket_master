@@ -12,6 +12,11 @@
           <Card :x="event" v-on:getOne="eventDetail(event, event.id)" />
         </div>
       </section>
+       <Paginate
+          :page-range=this.event.limit
+          :click-handler="clickCallback"
+          :container-class="paginate"
+         />
     </div>
   </main>
 </template>
@@ -20,10 +25,17 @@
 import Loader from "../components/Loader.vue";
 import Card from "../components/Card.vue";
 import { mapActions, mapState } from "vuex";
+import Paginate from 'vuejs-paginate';
 export default {
+  data(){
+    return {
+      pageCount: 2
+    }
+  },
   components: {
     Card,
-    Loader
+    Loader,
+    Paginate
   },
   computed: {
     ...mapState(["event"]),
@@ -43,6 +55,11 @@ export default {
           value: event
         }
       });
+    },
+    clickCallback(pageNum){
+      this.event.page = pageNum
+      console.log(pageNum)
+      this.getAllEvents({page: pageNum})
     }
   },
   mounted() {
@@ -52,6 +69,8 @@ export default {
 </script>
 
 <style scoped>
+
+
 #home .main-container {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -109,4 +128,32 @@ export default {
     padding-left: 35px;
   }
 }
+</style>
+<style>
+#home ul {
+  margin-left: 20px;
+  list-style: none !important;
+  display: flex;
+  align-items:center;
+justify-content: space-between;
+width: 25%;
+margin-left: 10rem;
+}
+
+#home ul li:first-child {
+  color: #ffff;
+  border: 1px solid #f5a524;
+  padding: 6px 10px;
+  background-color: #f5a524;
+  outline: none !important;;
+}
+
+#home ul li:last-child {
+  color: #ffff;
+  border: 1px solid #f5a524;
+  padding: 6px 10px;
+  background-color: #f5a524;
+  outline: none !important;
+}
+
 </style>

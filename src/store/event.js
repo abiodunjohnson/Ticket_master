@@ -10,7 +10,9 @@ export default {
         events: [],
         oneEvent: [],
         isFetching: false,
-        eventType: {}
+        eventType: {},
+        limit: 20,
+        page: 1
     },
     mutations: {
         setEvents(state, events){
@@ -30,10 +32,15 @@ export default {
         }
     },
     actions: {
-        async getAllEvents({ commit }){
+        async getAllEvents({ commit, state }){
             commit('startRequest')
             try{
-                await axios.get('https://eventsflw.herokuapp.com/v1/events')
+                await axios.get('https://eventsflw.herokuapp.com/v1/events', {
+                    params:{
+                        limit: state.limit,
+                        page: state.page
+                    }
+                })
                     .then(res => {
                         if(res.status === 200){
                             commit('setEvents', res.data.data.events);

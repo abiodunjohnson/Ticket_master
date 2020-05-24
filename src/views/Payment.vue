@@ -949,6 +949,10 @@ input[type="name"],
     margin-left: 39px;
   }
 
+  #payment .main-container .right-container .right-content .btn-block1 .send-ticket {
+    width: 80%;
+}
+
   input[type="name"],
   [type="email"],
   [type="text"] {
