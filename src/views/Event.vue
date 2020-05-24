@@ -20,16 +20,17 @@
           </div>
         </div>
       </div>
-
+      
       <div class="left-container">
         <div class="left-content">
+     
           <div class="img-block">
             <img :src="oneEvent.image" style />
           </div>
         </div>
       </div>
     </section>
-    <BlankLayout />
+   
     <hr />
 
     <section class="next-container">
@@ -60,7 +61,9 @@
         </div>
       </div>
     </section>
+    <BlankLayout />
   </main>
+   
 </template>
 
 <script>
@@ -155,6 +158,7 @@ export default {
   text-transform: uppercase;
   box-shadow: none !important;
   outline: none !important;
+  cursor: pointer;
 }
 #event .main-container .left-container {
   margin-right: -30px;

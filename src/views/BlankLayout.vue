@@ -10,15 +10,30 @@ export default {};
 
 <style scoped>
 #blank-layout {
-  overflow: hidden;
-  position: relative;
+  top: 0;
+    right: 0%;
+    /* height: 04rem; */
+  position: absolute;
 }
 
 #blank-layout img {
-  position: absolute;
-  top: 20px;
-  right: 0;
-  width: 46rem;
- 
+  overflow: hidden;
+   position: relative;
+ height: 44.7rem;
 }
+
+
+/* MEDIA QUERIES */
+@media (max-width: 360px) {
+  #blank-layout img {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  #blank-layout img {
+    display: none;
+  }
+}
+
 </style>

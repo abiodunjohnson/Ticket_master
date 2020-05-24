@@ -64,6 +64,7 @@ export default {
   color: #ffffff;
   border-radius: 4.06693px;
   padding: 8px 10px;
+  cursor: pointer;
 }
 
 /* MEDIA QUEIRES */

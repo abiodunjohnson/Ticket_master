@@ -138,7 +138,12 @@
           </div>
 
           <div class="btn-block1">
-             <div @click="createOrder(payObject.event_id)" :disabled="disabled" class="send-ticket">CONTINUE</div>
+            <button
+              v-if="payShow"
+              @click="createOrder(payObject.event_id)"
+              :disabled="disabled"
+              class="send-ticket"
+            >CONTINUE</button>
           </div>
           <div class="money-back">
             <img src="@/assets/img/Vector.png" />
@@ -149,57 +154,60 @@
           </div>
         </div>
       </div>
+      <Rave
+        v-if="flutterOpen"
+        style-class="paymentbtn"
+        :email="email"
+        :amount="amount"
+        :reference="reference"
+        :rave-key="raveKey"
+        :callback="callback"
+        :close="close"
+        :paymentPlan="plan"
+        :customerFirstname="fname"
+        paymentOptions="card,barter,account,ussd"
+        hostedPayemt="1"
+        customTitle="Pay for Ticket"
+        currency="NGN"
+        country="NG"
+      >
+        <i>Pay</i>
+      </Rave>
     </section>
-
-    <Rave
-       v-if="flutterOpen"
-       style-class="paymentbtn"
-       :email="email"
-       :amount="amount"
-       :reference="reference"
-       :rave-key="raveKey"
-       :callback="callback"
-       :close="close"
-       :paymentPlan="plan"
-       :customerFirstname="fname"
-       paymentOptions="card,barter,account,ussd"
-       hostedPayemt="1"
-       customTitle="Pay for Ticket"
-       currency="NGN"
-       country="NG"
-   ><i>Pay Me, My Money</i></Rave>
   </main>
 </template>
 
 <script>
-import axios from 'axios'
-import Rave from 'vue-ravepayment';
+import axios from "axios";
+import Rave from "vue-ravepayment";
 export default {
-   components: {
+  components: {
     Rave
   },
   data() {
     return {
-       blurBrn: true,
+      blurBrn: true,
       payObject: {},
       quannt: 0,
-       currency: "NGN",
+      currency: "NGN",
       country: "NG",
       countTicket: 0,
       disabled: true,
       vat: 100,
       show: true,
-     show2: false,
+      show2: false,
+      payShow: true,
+
       user: {
-        email: '',
-        phone: '',
-        name: ''
+        email: "",
+        phone: "",
+        name: ""
       },
       flutterOpen: false,
-      raveKey:'FLWPUBK-0a6ee03e40e2ae7bee6e0e5e90df97cc-X',
+      raveKey: "FLWPUBK-0a6ee03e40e2ae7bee6e0e5e90df97cc-X",
       email: "",
       amount: "",
-      fname: "",
+      fname: ""
     };
   },
   watch: {
@@ -214,17 +222,18 @@ export default {
         }
       }
     },
-    'user.phone': {
+    "user.phone": {
       deep: true,
       immediate: true,
-      handler(x){
-        if(this.user.phone != undefined){
-           const result = x.replace(/\D/g, "")
-          .replace(/\B(?=(\d{3})+(?!\d))/g, "");
+      handler(x) {
+        if (this.user.phone != undefined) {
+          const result = x
+            .replace(/\D/g, "")
+            .replace(/\B(?=(\d{3})+(?!\d))/g, "");
           this.user.phoneNumber = result;
         }
       }
-    },
+    }
   },
   computed: {
     price() {
@@ -239,9 +248,10 @@ export default {
     },
     reference() {
       let text = "";
-      let possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+      let possible =
+        "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
       for (let i = 0; i < 10; i++)
-      text += possible.charAt(Math.floor(Math.random() * possible.length));
+        text += possible.charAt(Math.floor(Math.random() * possible.length));
       return text;
     }
   },
@@ -262,11 +272,12 @@ export default {
       this.show = false;
       this.show2 = true;
     },
-    showOther(){
+    showOther() {
       this.show2 = false;
       this.show = true;
     },
-    async createOrder(id){
+
+    async createOrder(id) {
       let payload = {
         event_id: id,
         email: this.user.email,
@@ -275,39 +286,40 @@ export default {
         base_amount: this.subTotal,
         value_added_tax: this.vat,
         tickets_bought: this.quannt
-      }
-      let url = `https://eventsflw.herokuapp.com/v1/orders`
-      await axios.post(url, payload)
-        .then(res => {
-          console.log(res)
-          if(res.status === 200){
-            let {email,name} = this.user
-            this.email = email
-            this.amount = this.subTotal
-            this.fname = name
-            this.flutterOpen = true;
-          }
-        })
+      };
+      let url = `https://eventsflw.herokuapp.com/v1/orders`;
+      await axios.post(url, payload).then(res => {
+        console.log(res);
+        if (res.status === 200) {
+          let { email, name } = this.user;
+          this.email = email;
+          this.amount = this.subTotal;
+          this.fname = name;
+          this.payShow = false;
+          this.flutterOpen = true;
+        }
+      });
     },
-    clearFields(){
-      this.user.email = '';
-      this.user.phone = '';
-      this.user.name = '';
+    clearFields() {
+      this.user.email = "";
+      this.user.phone = "";
+      this.user.name = "";
     },
-    callback(response){
-      console.log(response)
+    callback(response) {
+      console.log(response);
     },
-    close(){
-      console.log("Payment closed")
-      this.$router.push('/')
+    close() {
+      console.log("Payment closed");
+      this.$router.push("/");
     }
-  },
+  }
 };
 </script>
 
 <style scoped>
 #payment {
   background: #f2f2f2;
+  height: 100vh;
 }
 
 #payment .main-container {
@@ -392,18 +404,17 @@ export default {
   margin-left: 6rem;
 }
 
-.paymentbtn{
-  text-transform: uppercase;
+.paymentbtn {
+  width: 22%;
   color: #ffffff;
+  bottom: 27%;
+  right: 4rem;
+  height: 38px;
   border: 1px solid #f5a623;
   background-color: #f5a623;
-  width: 100%;
-  margin-right: auto;
-  height: 49px;
   position: absolute !important;
-  right: 0 !important;
-  display: flex;
-  justify-content: flex-end;
+  padding: 6px 10px;
+  border-radius: 4px;
 }
 
 #payment .main-container .left-container .event-date {
@@ -500,6 +511,7 @@ export default {
   background-color: #ffffff;
   width: 30%;
   padding-top: 30px;
+  height: 95vh;
 }
 
 #payment .main-container .right-container .right-content h6 {
@@ -619,6 +631,8 @@ export default {
   border-radius: 4px;
   text-decoration: none;
   padding: 10px 105px;
+  font-size: 16px;
+  cursor: pointer;
 }
 
 #payment
@@ -635,7 +649,8 @@ export default {
   border-radius: 4px;
   text-decoration: none;
   padding: 10px 105px;
-  font-size: 18px;
+  font-size: 16px;
+  cursor: pointer;
 }
 
 #payment .right-container .right-content .money-back {
@@ -678,7 +693,7 @@ export default {
 
 input[type="name"],
 [type="email"],
-[type="number"] {
+[type="text"] {
   background: #fdfdfd;
   border: 1px solid #e0e0e0;
   border-radius: 4px;
@@ -744,7 +759,7 @@ input[type="name"],
   }
   input[type="name"],
   [type="email"],
-  [type="number"] {
+  [type="text"] {
     margin-left: 100px;
     width: 31rem;
   }
@@ -768,19 +783,34 @@ input[type="name"],
   #payment .main-container .right-container .right-content .status-block {
     display: flex;
     justify-content: space-between;
-    padding-right: 109px;
-    padding-left: 109px;
+    padding-right: 139px;
+    padding-left: 100px;
   }
 
   #payment .right-container .right-content .money-back {
     margin-left: 13rem;
+  }
+
+  .paymentbtn {
+     /* bottom: -10.5%; */
+      width: 69%;
+      right: 8.6rem;
+  }
+
+  #payment .main-container .right-container .right-content .btn-block .send-ticket{
+    width: 75%;
+  }
+
+  #payment .main-container .right-container .right-content .btn-block1 .send-ticket{
+    width: 70%;
+    margin-right: 40px;
   }
 }
 
 @media (max-width: 676px) {
   input[type="name"],
   [type="email"],
-  [type="number"] {
+  [type="text"] {
     margin-left: 100px;
     width: 25rem;
   }
@@ -808,7 +838,7 @@ input[type="name"],
 
   input[type="name"],
   [type="email"],
-  [type="number"] {
+  [type="text"] {
     margin-left: 80px;
     width: 23.4rem;
   }
@@ -842,7 +872,7 @@ input[type="name"],
 
   input[type="name"],
   [type="email"],
-  [type="number"] {
+  [type="text"] {
     width: 16.7rem;
     margin-left: 62px;
   }
@@ -859,19 +889,34 @@ input[type="name"],
 
 @media (max-width: 414px) {
   #payment .main-container .left-container ul .list-item .status {
-    margin-right: .1rem !important;
+    margin-right: 0.1rem !important;
     font-family: Flutterwave;
     font-size: 18px;
     line-height: 24px;
     color: #333333;
-    margin-right: .5rem;
+    margin-right: 0.5rem;
   }
 
   #payment .main-container .left-container .left-line {
     width: 83%;
   }
+
+  .paymentbtn {
+     bottom: -1.5%;
+      width: 73%;
+      right: 3rem;
+  }
 }
 
+@media (max-width: 411px) {
+.paymentbtn {
+   width: 71%;
+  /* bottom: -19%; */
+  right: 3.4rem;
+  bottom: -4.5%;
+
+}
+}
 
 @media (max-width: 375px) {
   #payment .main-container .left-container ul .list-item .status {
@@ -902,14 +947,30 @@ input[type="name"],
 
   #payment .main-detail .form-container .input-block label {
     margin-left: 39px;
-}
+  }
 
   input[type="name"],
   [type="email"],
-  [type="number"] {  
+  [type="text"] {
     margin-left: 39px;
   }
+
+  .paymentbtn {
+     bottom: -14.5%;
+      width: 82%;
+      right: 2rem;
+  }
 }
+
+@media (max-width: 360px) {
+.paymentbtn {
+   width: 84%;
+  bottom: -19%;
+  right: 1rem;
+
+}
+}
+
 
 @media (max-width: 320px) {
   #payment .right-container .right-content .money-back {
@@ -945,17 +1006,37 @@ input[type="name"],
 
   input[type="name"],
   [type="email"],
-  [type="number"] {
+  [type="text"] {
     width: 12.5rem;
     margin-left: 38px;
   }
 
-  #payment .main-container .right-container .right-content .btn-block1 .send-ticket {
+  #payment
+    .main-container
+    .right-container
+    .right-content
+    .btn-block1
+    .send-ticket {
+    padding: 10px 75px;
+  }
+
+  #payment
+    .main-container
+    .right-container
+    .right-content
+    .btn-block
+    .send-ticket {
     padding: 10px 75px;
   }
 
   #payment .main-detail .form-container .input-block label {
     margin-left: 42px;
-}
+  }
+
+  .paymentbtn {
+     bottom: -34.5%;
+      width: 74%;
+      right: 3rem;
+  }
 }
 </style>

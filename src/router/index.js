@@ -50,10 +50,7 @@ export const router = new Router({
                     path: '/success',
                     component: () => import('@/views/DidntGetTicketSuccessful.vue')
                 },
-                // {
-                //     path:'/RegisterationSucessful',
-                //     component: () => import('@/views/RegisterationSucessful.vue')
-                // }
+                
 
 
                
