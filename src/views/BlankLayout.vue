@@ -12,7 +12,6 @@ export default {};
 #blank-layout {
   top: 0;
     right: 0%;
-    /* height: 04rem; */
   position: absolute;
 }
 

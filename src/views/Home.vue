@@ -145,7 +145,7 @@ margin-left: 10rem;
   border: 1px solid #f5a524;
   padding: 6px 10px;
   background-color: #f5a524;
-  outline: none !important;;
+  outline: none !important;
 }
 
 #home ul li:last-child {

@@ -118,8 +118,6 @@ export default {
   }
 }
 
-
-
 @media (max-width: 320px) {
   #nav-bar .navbar-right .create-event-btn {
     font-size: 07px !important;

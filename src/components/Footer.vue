@@ -18,7 +18,6 @@ export default {};
 #footer .footer-block {
   display: flex;
   justify-content: space-between;
-  /* padding-top: 50px; */
 }
 
 #footer .footer-block .footer-left {

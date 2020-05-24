@@ -11,7 +11,6 @@
 </template>
 
 <script>
-// eslint-disable-next-line vue/no-parsing-error
 import Register from "../views/Register.vue";
 import Navbar from "../components/Navbar.vue";
 import Footer from "../components/Footer.vue";

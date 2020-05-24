@@ -164,7 +164,6 @@ export default {
   height: auto;
   margin: auto;
   padding: 30px 10px 60px 10px;
-  /* overflow: hidden; */
 }
 
 #register .main-container .register-close {

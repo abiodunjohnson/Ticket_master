@@ -93,7 +93,6 @@ export default {
             });
           }
         });
-      // this.$router.push('/Payment')
     }
   },
   mounted() {
@@ -265,10 +264,6 @@ export default {
     font-size: 20px;
     line-height: 30px;
   }
-
-  /* #event .main-container .left-container .left-content .img-block img {
-    margin-right: -45px;
-  } */
 
   #event hr {
     width: 51%;

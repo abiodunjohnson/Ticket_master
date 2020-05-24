@@ -553,7 +553,6 @@ export default {
   line-height: 17px;
   color: #333333;
   font-weight: 600;
-  /* margin-right: 140px; */
 }
 #payment
   .main-container

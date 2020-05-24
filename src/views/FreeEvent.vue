@@ -82,7 +82,7 @@ export default {
     }
   },
   mounted(){
-    // this.event = this.$router.params.value
+    
     console.log(this.$router.params)
   },
   methods: {
