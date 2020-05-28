@@ -45,7 +45,7 @@
           <div class="input-block">
             <label for="email">Number of tickets</label>
             <br />
-            <input type="text" v-model ="ticket.num_of_tickets" placeholder="2020-08-21 " name required />
+            <input type="text" v-model ="ticket.num_of_tickets" placeholder="1000 " name required />
           </div>
 
           <div class="input-block">
@@ -238,12 +238,39 @@ input[type="text"],
   text-align: center;
 }
 /* MEDIA QUERIES */
+@media (max-width: 411px) {
+  register .main-container .main-detail .form-container .btn-block .send-ticket {
+  font-family: Flutterwave;
+  text-transform: uppercase;
+  border: 1px solid #f5a623;
+  background-color: #f5a623;
+  color: #ffffff;
+  border-radius: 4px;
+  text-decoration: none;
+  padding: 10px 11px;
+  width: 16.5rem;
+  text-align: center;
+}
+}
 
 @media (max-width: 414px) {
  input[type="text"],
-[type="select-ticket"]
+  [type="select-ticket"]
  {
   width: 13.5rem !important;
+ }
+
+#register .main-container .main-detail .form-container .btn-block .send-ticket {
+  font-family: Flutterwave;
+  text-transform: uppercase;
+  border: 1px solid #f5a623;
+  background-color: #f5a623;
+  color: #ffffff;
+  border-radius: 4px;
+  text-decoration: none;
+  padding: 10px 11px;
+  width: 16.5rem;
+  text-align: center;
 }
 }
 
@@ -252,6 +279,19 @@ input[type="text"],
 [type="select-ticket"]
  {
   width: 13.5rem !important;
+}
+
+#register .main-container .main-detail .form-container .btn-block .send-ticket {
+  font-family: Flutterwave;
+  text-transform: uppercase;
+  border: 1px solid #f5a623;
+  background-color: #f5a623;
+  color: #ffffff;
+  border-radius: 4px;
+  text-decoration: none;
+  padding: 10px 11px;
+  width: 15.5rem;
+  text-align: center;
 }
 }
 </style>

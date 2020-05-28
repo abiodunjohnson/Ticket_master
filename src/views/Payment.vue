@@ -865,6 +865,8 @@ input[type="name"],
     margin-left: 60px;
   }
 
+  
+
   #payment .main-container .right-container .right-content .go-back-block img {
     margin-left: 0rem;
   }
@@ -900,6 +902,31 @@ input[type="name"],
     width: 83%;
   }
 
+   #payment .main-container .right-container .right-content .btn-block1 .send-ticket {
+    width: 83%;
+    margin-left: 35px;
+}
+
+#payment .main-container .right-container .right-content .go-back-block {
+    margin-left: 2.6rem;
+    }
+
+    #payment .main-container .right-container .right-content .right-line {
+      width: 78%;
+    }
+
+   #payment .main-container .right-container .right-content .btn-block .send-ticket{
+      padding: 10px 8px;
+      width: 80%;
+  }
+
+input[type="name"],
+  [type="email"],
+  [type="text"] {
+    margin-left: 39px;
+    width: 19rem;
+  }
+
   .paymentbtn {
      bottom: -1.5%;
       width: 73%;
@@ -913,8 +940,23 @@ input[type="name"],
   /* bottom: -19%; */
   right: 3.4rem;
   bottom: -4.5%;
-
 }
+
+ #payment .main-container .right-container .right-content .btn-block1 .send-ticket {
+    width: 83.5%;
+    margin-left: 35px;
+}
+#payment .main-container .right-container .right-content .btn-block .send-ticket {
+    padding: 10px 8px;
+    width: 78%;
+}
+
+input[type="name"],
+  [type="email"],
+  [type="text"] {
+    margin-left: 39px;
+    width: 19rem;
+  }
 }
 
 @media (max-width: 375px) {
@@ -924,6 +966,9 @@ input[type="name"],
 
   #payment .main-container .left-container .expire {
     margin-left: 1.2rem;
+  }
+  #payment .main-container .right-container .right-content .go-back-block {
+    margin-left: 2.6rem;
   }
 
   #payment .main-container .left-container .left-line {
@@ -936,26 +981,33 @@ input[type="name"],
 
   #payment .main-container .right-container .right-content .right-line {
     width: 80%;
-    margin-left: 50px;
+    margin-left: 40px;
   }
 
   #payment .main-container .right-container .right-content .right-line-bottom {
     width: 80%;
-    margin-left: 50px;
+    margin-left: 40px;
   }
 
   #payment .main-detail .form-container .input-block label {
     margin-left: 39px;
   }
 
+    #payment .main-container .right-container .right-content .btn-block .send-ticket{
+      padding: 10px 8px;
+      width: 80%;
+  }
+
   #payment .main-container .right-container .right-content .btn-block1 .send-ticket {
-    width: 80%;
+    width: 83.5%;
+    margin-left: 35px;
 }
 
   input[type="name"],
   [type="email"],
   [type="text"] {
     margin-left: 39px;
+    width: 17rem;
   }
 
   .paymentbtn {
@@ -1010,9 +1062,13 @@ input[type="name"],
   input[type="name"],
   [type="email"],
   [type="text"] {
-    width: 12.5rem;
+    width: 14.5rem;
     margin-left: 38px;
   }
+  #payment .main-container .right-container .right-content .right-line-bottom {
+    width: 80%;
+    margin-left: 40px;
+}
 
   #payment
     .main-container
