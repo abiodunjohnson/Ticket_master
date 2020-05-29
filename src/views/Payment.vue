@@ -154,6 +154,7 @@
           </div>
         </div>
       </div>
+      <div >
       <Rave
         v-if="flutterOpen"
         style-class="paymentbtn"
@@ -173,6 +174,7 @@
       >
         <i>Pay</i>
       </Rave>
+      </div>
     </section>
   </main>
 </template>
@@ -929,8 +931,8 @@ input[type="name"],
 
   .paymentbtn {
      bottom: -1.5%;
-      width: 73%;
-      right: 3rem;
+      width: 82%;
+      right: 2.3rem;
   }
 }
 
@@ -1094,8 +1096,8 @@ input[type="name"],
 
   .paymentbtn {
      bottom: -34.5%;
-      width: 74%;
-      right: 3rem;
+      width: 82%;
+      right: 1.1rem;
   }
 }
 </style>

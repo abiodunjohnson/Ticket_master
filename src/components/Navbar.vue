@@ -104,7 +104,7 @@ export default {
 
 @media (max-width: 375px) {
   #nav-bar .navbar-right .create-event-btn {
-    font-size: 11px;
+    font-size: 09px;
   }
 
   #nav-bar .navbar-right .ticket__text {

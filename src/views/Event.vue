@@ -25,7 +25,8 @@
         <div class="left-content">
      
           <div class="img-block">
-            <img :src="oneEvent.image" style />
+            <img v-if="oneEvent.image === null" src="@/assets/img/event-image.png" alt="outgoing-card" />
+            <img v-else :src="oneEvent.image" style />
           </div>
         </div>
       </div>
@@ -350,17 +351,14 @@ export default {
 }
 
 @media (max-width: 375px) {
-  #event .main-container .right-container {
-    margin-left: 3.8rem;
-  }
 
   #event .main-container .right-container {
     margin-left: 3.8rem !important;
   }
 
-  #event .next-container .right-container {
+  /* #event .next-container .right-container {
     margin-left: 3.9rem !important;
-  }
+  } */
 
   #event .main-container .right-container .right-content .send-ticket {
     width: 90% !important;
@@ -398,7 +396,7 @@ export default {
   }
 
   #event .next-container .left-container {
-    margin-left: 3.1rem;
+    margin-left: 3.8rem;
   }
 
   #event .main-container .right-container .right-content .send-ticket {
@@ -410,7 +408,7 @@ export default {
   }
 
   #event .next-container .right-container {
-    margin-left: 3.1rem !important;
+    margin-left: 3.8rem !important;
   }
 }
 
