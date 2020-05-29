@@ -113,7 +113,7 @@
           <div class="main-detail">
             <form class="form-container">
               <div class="input-block">
-                <label for="email">Full name</label>
+                <label for="name">Full name</label>
                 <br />
                 <input type="name" placeholder name="email" v-model="user.name" required />
               </div>
@@ -125,9 +125,9 @@
               </div>
 
               <div class="input-block">
-                <label for="email">Phone number</label>
+                <label for="number">Phone number</label>
                 <br />
-                <input type="text" placeholder name="email" v-model="user.phone" required />
+                <input type="number" placeholder name="email" v-model="user.phone" required />
               </div>
             </form>
           </div>
@@ -692,7 +692,7 @@ export default {
 
 input[type="name"],
 [type="email"],
-[type="text"] {
+[type="number"] {
   background: #fdfdfd;
   border: 1px solid #e0e0e0;
   border-radius: 4px;
@@ -700,6 +700,7 @@ input[type="name"],
   width: 16.5rem;
   margin-left: 48px;
   margin-top: 10px;
+  outline: none !important;
 }
 
 #payment .main-detail .form-container .input-block {
@@ -743,6 +744,7 @@ input[type="name"],
   #payment .main-container .right-container {
     background-color: #ffffff;
     width: 100%;
+    margin-left: 0rem;
   }
 
   #payment .main-container .right-container .right-content .go-back-block img {
@@ -758,7 +760,7 @@ input[type="name"],
   }
   input[type="name"],
   [type="email"],
-  [type="text"] {
+  [type="number"] {
     margin-left: 100px;
     width: 31rem;
   }
@@ -802,14 +804,14 @@ input[type="name"],
 
   #payment .main-container .right-container .right-content .btn-block1 .send-ticket{
     width: 70%;
-    margin-right: 40px;
+    margin-right: 20px;
   }
 }
 
 @media (max-width: 676px) {
   input[type="name"],
   [type="email"],
-  [type="text"] {
+  [type="number"] {
     margin-left: 100px;
     width: 25rem;
   }
@@ -837,7 +839,7 @@ input[type="name"],
 
   input[type="name"],
   [type="email"],
-  [type="text"] {
+  [type="number"] {
     margin-left: 80px;
     width: 23.4rem;
   }
@@ -871,7 +873,7 @@ input[type="name"],
 
   input[type="name"],
   [type="email"],
-  [type="text"] {
+  [type="number"] {
     width: 16.7rem;
     margin-left: 62px;
   }
@@ -905,6 +907,10 @@ input[type="name"],
       width: 73%;
       right: 3rem;
   }
+
+  #payment .main-container .right-container .right-content .btn-block1 .send-ticket{
+    margin-right: 0px;
+  }
 }
 
 @media (max-width: 411px) {
@@ -928,6 +934,7 @@ input[type="name"],
 
   #payment .main-container .left-container .left-line {
     width: 88%;
+    margin-right: 30px;
   }
 
   #payment .main-container .left-container ul .list-item .price {
@@ -936,7 +943,7 @@ input[type="name"],
 
   #payment .main-container .right-container .right-content .right-line {
     width: 80%;
-    margin-left: 50px;
+    margin-left: 40px;
   }
 
   #payment .main-container .right-container .right-content .right-line-bottom {
@@ -954,7 +961,7 @@ input[type="name"],
 
   input[type="name"],
   [type="email"],
-  [type="text"] {
+  [type="number"] {
     margin-left: 39px;
   }
 
@@ -1009,7 +1016,7 @@ input[type="name"],
 
   input[type="name"],
   [type="email"],
-  [type="text"] {
+  [type="number"] {
     width: 12.5rem;
     margin-left: 38px;
   }
