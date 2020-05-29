@@ -45,7 +45,7 @@
           <div class="input-block">
             <label for="email">Number of tickets</label>
             <br />
-            <input type="text" v-model ="ticket.num_of_tickets" placeholder="1000 " name required />
+            <input type="text" v-model ="ticket.num_of_tickets" placeholder="2020-08-21 " name required />
           </div>
 
           <div class="input-block">
@@ -209,7 +209,6 @@ export default {
 }
 
 input[type="text"]
-
  {
   background: #fdfdfd;
   border: 1px solid #e0e0e0;
@@ -218,16 +217,19 @@ input[type="text"]
   width: 16.5rem;
   margin-left: 28px;
   margin-top: 10px;
+  outline: none;
 }
 
-input[type="select-ticket"] {
-   background: #fdfdfd;
+[type="select-ticket"]
+ {
+  background: #fdfdfd;
   border: 1px solid #e0e0e0;
   border-radius: 4px;
   padding: 10px 15px;
   width: 18.5rem;
   margin-left: 28px;
   margin-top: 10px;
+  outline: none;
 }
 
 #register .main-container .main-detail .form-container .btn-block {
@@ -246,41 +248,16 @@ input[type="select-ticket"] {
   padding: 10px 11px;
   width: 18.5rem;
   text-align: center;
+  outline: none;
+  margin-left: 10px;
 }
 /* MEDIA QUERIES */
-@media (max-width: 411px) {
-  register .main-container .main-detail .form-container .btn-block .send-ticket {
-  font-family: Flutterwave;
-  text-transform: uppercase;
-  border: 1px solid #f5a623;
-  background-color: #f5a623;
-  color: #ffffff;
-  border-radius: 4px;
-  text-decoration: none;
-  padding: 10px 11px;
-  width: 16.5rem;
-  text-align: center;
-}
-}
 
 @media (max-width: 414px) {
  input[type="text"],
-  [type="select-ticket"]
+[type="select-ticket"]
  {
   width: 13.5rem !important;
- }
-
-#register .main-container .main-detail .form-container .btn-block .send-ticket {
-  font-family: Flutterwave;
-  text-transform: uppercase;
-  border: 1px solid #f5a623;
-  background-color: #f5a623;
-  color: #ffffff;
-  border-radius: 4px;
-  text-decoration: none;
-  padding: 10px 11px;
-  width: 16.5rem;
-  text-align: center;
 }
 }
 
@@ -289,19 +266,6 @@ input[type="select-ticket"] {
 [type="select-ticket"]
  {
   width: 13.5rem !important;
-}
-
-#register .main-container .main-detail .form-container .btn-block .send-ticket {
-  font-family: Flutterwave;
-  text-transform: uppercase;
-  border: 1px solid #f5a623;
-  background-color: #f5a623;
-  color: #ffffff;
-  border-radius: 4px;
-  text-decoration: none;
-  padding: 10px 11px;
-  width: 15.5rem;
-  text-align: center;
 }
 }
 </style>

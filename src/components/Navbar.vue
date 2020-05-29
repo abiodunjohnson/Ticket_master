@@ -65,6 +65,7 @@ export default {
   border-radius: 4.06693px;
   padding: 8px 10px;
   cursor: pointer;
+  outline: none;
 }
 
 /* MEDIA QUEIRES */
