@@ -744,7 +744,7 @@ input[type="name"],
   #payment .main-container .right-container {
     background-color: #ffffff;
     width: 100%;
-    margin-left: 0rem;
+    margin-left: 0rem !important;
   }
 
   #payment .main-container .right-container .right-content .go-back-block img {
