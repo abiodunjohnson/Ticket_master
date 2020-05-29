@@ -415,6 +415,7 @@ export default {
   position: absolute !important;
   padding: 6px 10px;
   border-radius: 4px;
+  outline: none;
 }
 
 #payment .main-container .left-container .event-date {
@@ -632,6 +633,7 @@ export default {
   padding: 10px 105px;
   font-size: 16px;
   cursor: pointer;
+  outline: none;
 }
 
 #payment
@@ -650,6 +652,7 @@ export default {
   padding: 10px 105px;
   font-size: 16px;
   cursor: pointer;
+  outline: none;
 }
 
 #payment .right-container .right-content .money-back {

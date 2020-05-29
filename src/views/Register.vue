@@ -217,6 +217,7 @@ input[type="text"]
   width: 16.5rem;
   margin-left: 28px;
   margin-top: 10px;
+  outline: none;
 }
 
 [type="select-ticket"]
@@ -228,6 +229,7 @@ input[type="text"]
   width: 18.5rem;
   margin-left: 28px;
   margin-top: 10px;
+  outline: none;
 }
 
 #register .main-container .main-detail .form-container .btn-block {
@@ -246,6 +248,8 @@ input[type="text"]
   padding: 10px 11px;
   width: 18.5rem;
   text-align: center;
+  outline: none;
+  margin-left: 10px;
 }
 /* MEDIA QUERIES */
 
