@@ -208,14 +208,24 @@ export default {
   color: #333333;
 }
 
-input[type="text"],
-[type="select-ticket"]
+input[type="text"]
  {
   background: #fdfdfd;
   border: 1px solid #e0e0e0;
   border-radius: 4px;
   padding: 10px 15px;
   width: 16.5rem;
+  margin-left: 28px;
+  margin-top: 10px;
+}
+
+[type="select-ticket"]
+ {
+  background: #fdfdfd;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  padding: 10px 15px;
+  width: 18.5rem;
   margin-left: 28px;
   margin-top: 10px;
 }
