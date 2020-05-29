@@ -817,7 +817,7 @@ input[type="name"],
   .paymentbtn {
      /* bottom: -10.5%; */
       width: 69%;
-      right: 8.6rem;
+      right: 8.1rem;
   }
 
   #payment .main-container .right-container .right-content .btn-block .send-ticket{
@@ -841,6 +841,10 @@ input[type="name"],
 }
 
 @media (max-width: 576px) {
+
+  #payment .main-container .left-container .register-close {
+    width: 15%;
+  }
   #payment .main-container .right-container .right-content .status-block {
     display: flex;
     justify-content: space-between;
@@ -870,7 +874,7 @@ input[type="name"],
   #payment .main-detail .form-container .input-block label {
     margin-left: 80px;
   }
-  #payment .main-container .right-container .right-content .right-line[data-v-322f15bc] {
+  #payment .main-container .right-container .right-content .right-line {
     margin-left: 5rem;
     width: 75%;
 }
@@ -981,9 +985,9 @@ input[type="name"],
   }
 
   .paymentbtn {
-     bottom: -1.5%;
-      width: 82%;
-      right: 2.3rem;
+     bottom: -0.5%;
+      width: 80%;
+      right: 2.0rem;
   }
 
   #payment .main-container .right-container .right-content .btn-block1 .send-ticket{
@@ -994,10 +998,9 @@ input[type="name"],
 
 @media (max-width: 411px) {
 .paymentbtn {
-   width: 71%;
-  /* bottom: -19%; */
-  right: 3.4rem;
-  bottom: -4.5%;
+   width: 82%;
+  right: 1.5rem;
+  bottom: 7%;
 }
 
  #payment .main-container .right-container .right-content .btn-block1 .send-ticket {
@@ -1058,37 +1061,44 @@ input[type="name"],
   }
 
   #payment .main-container .right-container .right-content .btn-block1 .send-ticket {
-    width: 81.5%;
-    margin-left: 30px;
+    width: 77%;
+    margin-left: 28px;
 }
 
   input[type="name"],
   [type="email"],
   [type="number"] {
     margin-left: 39px;
-    width: 17rem;
+    width: 16rem;
   }
 
   .paymentbtn {
-     bottom: -14.5%;
-      width: 82%;
-      right: 2rem;
+    bottom: 6%;
+    width: 78%;
+    right: 2rem;
   }
 }
 
 @media (max-width: 360px) {
 .paymentbtn {
-   width: 84%;
+   width: 76%;
   bottom: -19%;
-  right: 1rem;
+  right: 2.3rem;
 
 }
+
+input[type="name"],
+  [type="email"],
+  [type="number"] {
+    margin-left: 39px;
+    width: 15rem;
+  }
 }
 
 
 @media (max-width: 320px) {
   #payment .right-container .right-content .money-back {
-    margin-left: 1.5rem;
+    margin-left: 4.5rem;
   }
 
   #payment .main-container .right-container .right-content .go-back-block img {
@@ -1154,8 +1164,8 @@ input[type="name"],
 
   .paymentbtn {
      bottom: -34.5%;
-      width: 82%;
-      right: 1.1rem;
+      width: 73%;
+      right: 2.5rem;
   }
 }
 </style>
