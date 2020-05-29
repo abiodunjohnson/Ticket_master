@@ -25,7 +25,8 @@
         <div class="left-content">
      
           <div class="img-block">
-            <img :src="oneEvent.image" style />
+            <img v-if="oneEvent.image === null" src="@/assets/img/event-image.png" alt="outgoing-card" />
+            <img v-else :src="oneEvent.image" style />
           </div>
         </div>
       </div>
