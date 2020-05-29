@@ -32,7 +32,7 @@
                       <button
                         :disabled="disabled"
                         @click="decrement"
-                        style="background: transparent; border: none; outline: none !important;"
+                        
                       >
                         <img src="@/assets/img/deduct item.png" />
                       </button>
@@ -330,7 +330,7 @@ export default {
 }
 
 #payment .main-container .left-container {
-  margin-left: 5rem;
+  /* margin-left: 5rem; */
 }
 
 #payment .main-container .left-container .btn-close-block {
@@ -456,6 +456,13 @@ export default {
   padding-right: 05px;
 }
 
+#payment .main-container .left-container ul .list-item .btn-item .btn-left button {
+ background: transparent;
+    border: none;
+    outline: none !important;
+    margin-top: -02px;
+}
+
 #payment .main-container .left-container ul .list-item .btn-item img {
   width: 22px;
   height: 22px;
@@ -507,13 +514,14 @@ export default {
   margin-left: 5.4rem;
 }
 
-/* LEFT CONTAINER */
+/* RIGHT CONTAINER */
 
 #payment .main-container .right-container {
   background-color: #ffffff;
-  width: 30%;
+  width: 32.5%;
   padding-top: 30px;
   height: 95vh;
+   margin-left: 27rem;
 }
 
 #payment .main-container .right-container .right-content h6 {
@@ -527,12 +535,14 @@ export default {
   margin-top: 0rem;
 }
 
+
+
 #payment .main-container .right-container .right-content .go-back-block img {
   margin-left: 3.2rem;
 }
 
 #payment .main-container .right-container .right-content .right-line {
-  width: 70%;
+  width: 76%;
   border: 0.2px solid #bdbdbd;
 }
 
@@ -545,7 +555,7 @@ export default {
 
 #payment .main-container .right-container .right-content .right-line-bottom {
   margin-top: 7rem;
-  width: 70%;
+  width: 76%;
   border: 0.2px solid #bdbdbd;
 }
 
@@ -631,9 +641,10 @@ export default {
   color: #ffffff;
   border-radius: 4px;
   text-decoration: none;
-  padding: 10px 105px;
+  padding: 10px 120px;
   font-size: 16px;
   cursor: pointer;
+  margin-left: 20px;
 }
 
 #payment
@@ -649,7 +660,7 @@ export default {
   color: #ffffff;
   border-radius: 4px;
   text-decoration: none;
-  padding: 10px 105px;
+  padding: 10px 120px;
   font-size: 16px;
   cursor: pointer;
 }
@@ -699,9 +710,13 @@ input[type="name"],
   border: 1px solid #e0e0e0;
   border-radius: 4px;
   padding: 10px 15px;
-  width: 16.5rem;
-  margin-left: 48px;
+  width: 18.5rem;
+  margin-left: 50px;
   margin-top: 10px;
+}
+
+#payment .main-detail .form-container {
+      padding-left: 10px;
 }
 
 #payment .main-detail .form-container .input-block {
@@ -709,7 +724,7 @@ input[type="name"],
 }
 
 #payment .main-detail .form-container .input-block label {
-  margin-left: 57px;
+  margin-left: 50px;
   font-style: normal;
   font-weight: normal;
   font-size: 14px;
@@ -916,10 +931,17 @@ input[type="name"],
     #payment .main-container .right-container .right-content .right-line {
       width: 78%;
     }
+    #payment .main-container .right-container .right-content .right-line-bottom {
+      width: 78%;
+    }
 
    #payment .main-container .right-container .right-content .btn-block .send-ticket{
       padding: 10px 8px;
       width: 80%;
+  }
+
+  #payment .main-detail .form-container .input-block label {
+    margin-left: 40px;
   }
 
 input[type="name"],
@@ -975,6 +997,7 @@ input[type="name"],
 
   #payment .main-container .left-container .left-line {
     width: 88%;
+    margin-left: 4px;
   }
 
   #payment .main-container .left-container ul .list-item .price {
